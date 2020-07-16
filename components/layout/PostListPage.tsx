@@ -32,6 +32,7 @@ const PostListPage: React.FC<ListPageProp> = ({
           total={totalPage}
           displayRange={5}
           linkProps={{ href: '/blog/[...page]', as: '/blog/page/' }}
+          fontSize='1.2rem'
         />
       </Footer>
     </>
