@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import { GetProps } from '../typings/common';
 import { getPageRange, getPageRangeProps } from '../utils/getPageRange';
+import { isatty } from 'tty';
 
 interface PaginationProps
   extends getPageRangeProps,
@@ -110,14 +111,28 @@ const PageItem = styled.li<PageItemProps>`
     color: #95a5a6;
 
     ${({ isActive = false, buttonColor = 'dodgerBlue' }) =>
-      isActive ? reversedStyle(buttonColor, 'white') : null};
+      activeStyle(isActive, buttonColor, 'white')};
 
     border-radius: 0.4em;
     text-decoration: none;
+
+    box-sizing: border-box;
+    transition: color 0.2s;
   }
 `;
 
-const reversedStyle = (bgColor: string, color: string) => css`
-  background-color: ${bgColor};
-  color: ${color};
-`;
+const activeStyle = (
+  isActive: boolean,
+  buttonColor: string,
+  color: string = 'white',
+) =>
+  isActive
+    ? css`
+        background-color: ${buttonColor};
+        color: ${color};
+      `
+    : css`
+        &:hover {
+          color: ${buttonColor};
+        }
+      `;
