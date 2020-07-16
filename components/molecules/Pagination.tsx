@@ -71,7 +71,7 @@ const PageItem = styled.li<PageItemProps>`
     color: #95a5a6;
 
     ${({ isActive }) =>
-      isActive ? reversedStyle('dodgetBlue', 'white') : null};
+      isActive ? reversedStyle('dodgerBlue', 'white') : null};
 
     border-radius: 0.4em;
     text-decoration: none;
