@@ -15,6 +15,10 @@ export default class MyDocument extends Document {
             href='https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR&family=Montserrat:wght@900&display=swap'
             rel='stylesheet'
           />
+          <script
+            src='https://kit.fontawesome.com/ed29baba21.js'
+            crossOrigin='anonymous'
+            defer></script>
         </Head>
         <body>
           <div id='root'>
