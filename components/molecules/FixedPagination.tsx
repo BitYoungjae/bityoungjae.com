@@ -61,9 +61,9 @@ const FixedArrowButton = styled.button<FixedArrowButtonProps>`
   background-color: #353b48;
   color: white;
 
-  opacity: 0.7;
+  opacity: 0.5;
 
-  bottom: 15vh;
+  bottom: calc(50vh - 1.5em);
   ${({ position }) => directionStyle(position)}
 `;
 
