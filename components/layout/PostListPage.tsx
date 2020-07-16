@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ListPageProp } from 'poststore';
 import styled from 'styled-components';
 import Header from 'components/organism/Header';
 import PostList from 'components/organism/PostList';
 import Pagination from 'components/molecules/Pagination';
+import FixedPagination from 'components/molecules/FixedPagination';
+import PageChangeAlaram from 'components/molecules/PageChangeAlarm';
+
+const pageHref = '/blog/[...page]';
+const pageAs = '/blog/page/';
 
 const PostListPage: React.FC<ListPageProp> = ({
   main: { postList, currentPage, totalPage },
 }) => {
+  const [isChangePage, setChangePage] = useState(true);
+
+  useEffect(() => {
+    const timerId = setTimeout(() => setChangePage(false), 1000);
+    return () => {
+      clearTimeout(timerId);
+      setChangePage(true);
+    };
+  }, [currentPage]);
+
   return (
     <>
+      {isChangePage && <PageChangeAlaram currentPage={currentPage} />}
       <Header
         mainText='BITYOUNGJAE'
         subText='개발자하려고 퇴사했습니다'
@@ -31,10 +47,18 @@ const PostListPage: React.FC<ListPageProp> = ({
           current={currentPage}
           total={totalPage}
           displayRange={5}
-          linkProps={{ href: '/blog/[...page]', as: '/blog/page/' }}
+          linkProps={{ href: pageHref, as: pageAs }}
           fontSize='1.2rem'
         />
       </Footer>
+      <FixedPagination
+        current={currentPage}
+        total={totalPage}
+        linkProps={{
+          href: pageHref,
+          as: pageAs,
+        }}
+      />
     </>
   );
 };
