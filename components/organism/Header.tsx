@@ -2,6 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { GetProps } from '../typings/common';
 import Link from 'next/link';
+import HeaderInfoBox from 'components/molecules/HeaderInfoBox';
+import JobSearchInfo from 'components/atoms/JobSearchInfo';
+import FontAwsomeLink from 'components/molecules/FontAwsomeLink';
+import HeaderIconBox from 'components/molecules/HeaderIconBox';
+import { links } from '../../SiteMeta.json';
 
 interface HeaderProps extends HeaderBoxProps {
   mainText: string;
@@ -42,6 +47,29 @@ const Header: React.FC<HeaderProps> = ({
           {subText && <SubText {...sub}>{subText}</SubText>}
         </a>
       </Link>
+      <HeaderInfoBox>
+        <JobSearchInfo />
+        <HeaderIconBox width='calc(4.8rem + 2.35rem + .5rem)'>
+          <FontAwsomeLink
+            iconName='fab fa-twitter-square'
+            color='white'
+            fontSize='2.3rem'
+            href={links.twitter}
+          />
+          <FontAwsomeLink
+            iconName='fab fa-github'
+            color='white'
+            fontSize='2.3rem'
+            href={links.github}
+          />
+          <FontAwsomeLink
+            iconName='fas fa-envelope'
+            color='white'
+            fontSize='2.3rem'
+            href={links.email}
+          />
+        </HeaderIconBox>
+      </HeaderInfoBox>
     </HeaderBox>
   );
 };
@@ -60,7 +88,7 @@ const HeaderBox = styled.header<HeaderBoxProps>`
 
   font-size: ${({ fontSize = '1.8rem' }) => fontSize};
 
-  height: 3em;
+  height: 4.7em;
   overflow: hidden;
 
   background-color: ${({ backgroundColor = '#4291F7' }) => backgroundColor};

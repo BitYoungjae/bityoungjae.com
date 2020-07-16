@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import { GetProps } from '../typings/common';
 import { getPageRangeProps } from '../utils/getPageRange';
+import FontAwsome from 'components/atoms/FontAwsome';
 
 interface FixedPaginationProps extends Omit<getPageRangeProps, 'displayRange'> {
   fontSize?: string;
@@ -26,7 +27,7 @@ const FixedPagination: React.FC<FixedPaginationProps> = ({
         <Link {...linkProps} as={`${linkProps.as}${current - 1}`}>
           <a>
             <FixedArrowButton position='left' fontSize={fontSize}>
-              <i className='fas fa-arrow-left'></i>
+              <FontAwsome iconName='fas fa-arrow-left' />
             </FixedArrowButton>
           </a>
         </Link>
@@ -35,7 +36,7 @@ const FixedPagination: React.FC<FixedPaginationProps> = ({
         <Link {...linkProps} as={`${linkProps.as}${current + 1}`}>
           <a>
             <FixedArrowButton position='right' fontSize={fontSize}>
-              <i className='fas fa-arrow-right'></i>
+              <FontAwsome iconName='fas fa-arrow-right' />
             </FixedArrowButton>
           </a>
         </Link>

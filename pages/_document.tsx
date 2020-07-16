@@ -11,6 +11,7 @@ export default class MyDocument extends Document {
             content='width=device-width, initial-scale=1, shrink-to-fit=no'
           />
           <link rel='stylesheet' href='/styles/normalize.css' />
+          <link rel='stylesheet' href='/styles/common.css' />
           <link
             href='https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR&family=Montserrat:wght@900&display=swap'
             rel='stylesheet'

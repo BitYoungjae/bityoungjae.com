@@ -16,7 +16,7 @@ const PostListPage: React.FC<ListPageProp> = ({
   const [isChangePage, setChangePage] = useState(true);
 
   useEffect(() => {
-    const timerId = setTimeout(() => setChangePage(false), 1000);
+    const timerId = setTimeout(() => setChangePage(false), 700);
     return () => {
       clearTimeout(timerId);
       setChangePage(true);
@@ -32,12 +32,13 @@ const PostListPage: React.FC<ListPageProp> = ({
         texts={{
           main: {
             fontFamily: 'Montserrat, sans-serif',
-            letterSpacing: '.03em',
+            letterSpacing: '.1em',
           },
         }}
         linkProps={{
           href: '/blog',
         }}
+        backgroundColor='#4291F7'
       />
       <Main>
         <PostList postList={postList} href='/blog/[post]' as='/blog/' />

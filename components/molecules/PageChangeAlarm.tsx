@@ -37,7 +37,7 @@ const PopUpBox = styled.div`
   font-size: 3rem;
   font-weight: bold;
 
-  animation: ${padeIn} 0.5s alternate;
+  animation: ${padeIn} 0.3s alternate;
 
   border-radius: 3em;
 `;

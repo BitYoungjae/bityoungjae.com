@@ -4,7 +4,7 @@ module.exports = {
     {
       storeName: 'blog',
       postDir: './posts/Blog',
-      perPage: 1,
+      perPage: 2,
       pageParam: {
         post: 'post',
         category: 'category',
