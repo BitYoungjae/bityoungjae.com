@@ -18,7 +18,7 @@ const Pagination: React.FC<PaginationProps> = ({
   if (!pageRange) return;
 
   return (
-    <PaginationBox>
+    <PaginationBox fontSize='2rem'>
       {pageRange.map((pageNum) => (
         <PageItem key={pageNum} isActive={pageNum === current}>
           <Link {...linkProps} as={`${linkProps.as}${pageNum}`}>
@@ -71,15 +71,14 @@ const PageItem = styled.li<PageItemProps>`
     color: #95a5a6;
 
     ${({ isActive }) =>
-      isActive
-        ? css`
-            background-color: dodgerBlue;
-            color: white;
-          `
-        : null};
+      isActive ? reversedStyle('dodgetBlue', 'white') : null};
 
     border-radius: 0.4em;
-
     text-decoration: none;
   }
+`;
+
+const reversedStyle = (bgColor: string, color: string) => css`
+  background-color: ${bgColor};
+  color: ${color};
 `;
