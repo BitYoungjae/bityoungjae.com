@@ -4,13 +4,17 @@ import Link from 'next/link';
 import { GetProps } from '../typings/common';
 import { getPageRange, getPageRangeProps } from '../utils/getPageRange';
 
-interface PaginationProps extends getPageRangeProps, PaginationBoxProps {
+interface PaginationProps
+  extends getPageRangeProps,
+    PaginationBoxProps,
+    PageItemProps {
   linkProps: GetProps<Link>;
 }
 
 const Pagination: React.FC<PaginationProps> = ({
   linkProps,
   fontSize,
+  buttonColor,
   ...paginationProps
 }) => {
   const pageRange = getPageRange(paginationProps);
@@ -28,6 +32,7 @@ const Pagination: React.FC<PaginationProps> = ({
           pageNum={pageNum}
           current={current}
           linkProps={linkProps}
+          buttonColor={buttonColor}
         />
       ))}
       <PageItemLink key={9999} pageNum={total} linkProps={linkProps}>
@@ -39,7 +44,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
 export default Pagination;
 
-interface PageItemLinkProps {
+interface PageItemLinkProps extends PageItemProps {
   pageNum: number;
   current?: number;
   linkProps: GetProps<Link>;
@@ -49,10 +54,14 @@ const PageItemLink: React.FC<PageItemLinkProps> = ({
   pageNum,
   current,
   linkProps,
+  buttonColor,
   children,
 }) => {
   return (
-    <PageItem key={pageNum} isActive={pageNum === current}>
+    <PageItem
+      key={pageNum}
+      isActive={pageNum === current}
+      buttonColor={buttonColor}>
       <Link {...linkProps} as={`${linkProps.as}${pageNum}`}>
         <a>{children ? children : pageNum}</a>
       </Link>
@@ -81,7 +90,8 @@ const PaginationBox = styled.ul<PaginationBoxProps>`
 `;
 
 interface PageItemProps {
-  isActive: boolean;
+  isActive?: boolean;
+  buttonColor?: string;
 }
 
 const PageItem = styled.li<PageItemProps>`
@@ -98,8 +108,8 @@ const PageItem = styled.li<PageItemProps>`
 
     color: #95a5a6;
 
-    ${({ isActive }) =>
-      isActive ? reversedStyle('dodgerBlue', 'white') : null};
+    ${({ isActive = false, buttonColor = 'dodgerBlue' }) =>
+      isActive ? reversedStyle(buttonColor, 'white') : null};
 
     border-radius: 0.4em;
     text-decoration: none;
