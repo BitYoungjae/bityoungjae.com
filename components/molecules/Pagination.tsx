@@ -33,6 +33,7 @@ const Pagination: React.FC<PaginationProps> = ({
           current={current}
           linkProps={linkProps}
           buttonColor={buttonColor}
+          key={pageNum}
         />
       ))}
       <PageItemLink key={9999} pageNum={total} linkProps={linkProps}>
