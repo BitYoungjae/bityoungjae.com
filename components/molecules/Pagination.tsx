@@ -10,27 +10,55 @@ interface PaginationProps extends getPageRangeProps, PaginationBoxProps {
 
 const Pagination: React.FC<PaginationProps> = ({
   linkProps,
+  fontSize,
   ...paginationProps
 }) => {
   const pageRange = getPageRange(paginationProps);
-  const { current } = paginationProps;
+  const { current, total } = paginationProps;
 
   if (!pageRange) return;
 
   return (
-    <PaginationBox fontSize='2rem'>
+    <PaginationBox fontSize={fontSize}>
+      <PageItemLink pageNum={1} linkProps={linkProps}>
+        {'<<'}
+      </PageItemLink>
       {pageRange.map((pageNum) => (
-        <PageItem key={pageNum} isActive={pageNum === current}>
-          <Link {...linkProps} as={`${linkProps.as}${pageNum}`}>
-            <a>{pageNum}</a>
-          </Link>
-        </PageItem>
+        <PageItemLink
+          pageNum={pageNum}
+          current={current}
+          linkProps={linkProps}
+        />
       ))}
+      <PageItemLink pageNum={total} linkProps={linkProps}>
+        {'>>'}
+      </PageItemLink>
     </PaginationBox>
   );
 };
 
 export default Pagination;
+
+interface PageItemLinkProps {
+  pageNum: number;
+  current?: number;
+  linkProps: GetProps<Link>;
+}
+
+const PageItemLink: React.FC<PageItemLinkProps> = ({
+  pageNum,
+  current,
+  linkProps,
+  children,
+}) => {
+  return (
+    <PageItem key={pageNum} isActive={pageNum === current}>
+      <Link {...linkProps} as={`${linkProps.as}${pageNum}`}>
+        <a>{children ? children : pageNum}</a>
+      </Link>
+    </PageItem>
+  );
+};
 
 interface PaginationBoxProps {
   fontSize?: string;
