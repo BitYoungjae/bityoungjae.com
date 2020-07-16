@@ -20,7 +20,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <PaginationBox fontSize={fontSize}>
-      <PageItemLink pageNum={1} linkProps={linkProps}>
+      <PageItemLink key={9998} pageNum={1} linkProps={linkProps}>
         {'<<'}
       </PageItemLink>
       {pageRange.map((pageNum) => (
@@ -30,7 +30,7 @@ const Pagination: React.FC<PaginationProps> = ({
           linkProps={linkProps}
         />
       ))}
-      <PageItemLink pageNum={total} linkProps={linkProps}>
+      <PageItemLink key={9999} pageNum={total} linkProps={linkProps}>
         {'>>'}
       </PageItemLink>
     </PaginationBox>
