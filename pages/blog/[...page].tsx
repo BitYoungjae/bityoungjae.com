@@ -1,36 +1,9 @@
 import { getPageHandler, ListPageProp } from 'poststore';
-import PostList from 'components/organism/PostList';
-import Pagination from 'components/molecules/Pagination';
-import Header from 'components/organism/Header';
+import PostListPage from 'components/layout/PostListPage';
 
-const Post = ({ main: { postList, currentPage, totalPage } }: ListPageProp) => {
-  return (
-    <>
-      <Header
-        mainText='BITYOUNGJAE'
-        subText='개발자하려고 퇴사했습니다'
-        texts={{
-          main: {
-            fontFamily: 'Montserrat, sans-serif',
-            letterSpacing: '.03em',
-          },
-        }}
-        linkProps={{
-          href: '/blog',
-        }}
-      />
-      <PostList postList={postList} href='/blog/[post]' as='/blog/' />
-      <Pagination
-        current={currentPage}
-        total={totalPage}
-        displayRange={5}
-        linkProps={{ href: '/blog/[...page]', as: '/blog/page/' }}
-      />
-    </>
-  );
-};
+const Page: React.FC<ListPageProp> = (props) => <PostListPage {...props} />;
 
-export default Post;
+export default Page;
 
 const { getPathsBySlug, getPropsBySlug } = getPageHandler({
   useConfig: true,
