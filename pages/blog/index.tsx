@@ -1,13 +1,8 @@
+import React from 'react';
+import PostListPage from '../../components/layout/PostListPage';
 import { getMainPageHandler, ListPageProp } from 'poststore';
-import PostList from 'components/organism/PostList';
 
-const Post = ({ main: { postList } }: ListPageProp) => {
-  return (
-    <>
-      <PostList postList={postList} href='/blog/[post]' as='/blog/' />
-    </>
-  );
-};
+const Post: React.FC<ListPageProp> = (props) => <PostListPage {...props} />;
 
 export default Post;
 

@@ -1,14 +1,13 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Link from 'next/link';
 import { GetProps } from '../typings/common';
 import { getPageRange, getPageRangeProps } from '../utils/getPageRange';
+import PageItemLink from 'components/molecules/PageItemLink';
 
-interface PaginationProps
-  extends getPageRangeProps,
-    PaginationBoxProps,
-    PageItemProps {
+interface PaginationProps extends getPageRangeProps, PaginationBoxProps {
   linkProps: GetProps<Link>;
+  buttonColor?: string;
 }
 
 const Pagination: React.FC<PaginationProps> = ({
@@ -42,34 +41,6 @@ const Pagination: React.FC<PaginationProps> = ({
     </PaginationBox>
   );
 };
-
-export default Pagination;
-
-interface PageItemLinkProps extends PageItemProps {
-  pageNum: number;
-  current?: number;
-  linkProps: GetProps<Link>;
-}
-
-const PageItemLink: React.FC<PageItemLinkProps> = ({
-  pageNum,
-  current,
-  linkProps,
-  buttonColor,
-  children,
-}) => {
-  return (
-    <PageItem
-      key={pageNum}
-      isActive={pageNum === current}
-      buttonColor={buttonColor}>
-      <Link {...linkProps} as={`${linkProps.as}${pageNum}`}>
-        <a>{children ? children : pageNum}</a>
-      </Link>
-    </PageItem>
-  );
-};
-
 interface PaginationBoxProps {
   fontSize?: string;
 }
@@ -90,48 +61,4 @@ const PaginationBox = styled.ul<PaginationBoxProps>`
   list-style: none;
 `;
 
-interface PageItemProps {
-  isActive?: boolean;
-  buttonColor?: string;
-}
-
-const PageItem = styled.li<PageItemProps>`
-  & a {
-    font-size: inherit;
-    font-weight: bold;
-
-    width: 2em;
-    height: 2em;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    color: #95a5a6;
-
-    ${({ isActive = false, buttonColor = 'dodgerBlue' }) =>
-      activeStyle(isActive, buttonColor, 'white')};
-
-    border-radius: 0.4em;
-    text-decoration: none;
-
-    box-sizing: border-box;
-    transition: color 0.2s;
-  }
-`;
-
-const activeStyle = (
-  isActive: boolean,
-  buttonColor: string,
-  color: string = 'white',
-) =>
-  isActive
-    ? css`
-        background-color: ${buttonColor};
-        color: ${color};
-      `
-    : css`
-        &:hover {
-          color: ${buttonColor};
-        }
-      `;
+export default React.memo(Pagination);

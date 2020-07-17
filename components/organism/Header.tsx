@@ -49,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({
       </Link>
       <HeaderInfoBox>
         <JobSearchInfo />
-        <HeaderIconBox width='calc(4.8rem + 2.35rem + .5rem)'>
+        <HeaderIconBox count={3} fontSize='2.3rem' padding='1rem'>
           <FontAwsomeLink
             iconName='fab fa-twitter-square'
             color='white'
@@ -161,4 +161,4 @@ const SubText = styled.p<SubTextProps>`
   color: ${({ color = '#FFFFFF' }) => color};
 `;
 
-export default Header;
+export default React.memo(Header);

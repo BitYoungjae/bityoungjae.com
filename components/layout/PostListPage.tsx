@@ -7,9 +7,7 @@ import Pagination from 'components/organism/Pagination';
 import FixedPagination from 'components/molecules/FixedPagination';
 import PageChangeAlaram from 'components/molecules/PageChangeAlarm';
 import CategoryNav from 'components/molecules/CategoryNav';
-
-const pageHref = '/blog/[...page]';
-const pageAs = '/blog/page/';
+import { linkProps, textStyles } from 'components/common/constants';
 
 const PostListPage: React.FC<ListPageProp> = ({
   global: { categoryTree },
@@ -31,19 +29,12 @@ const PostListPage: React.FC<ListPageProp> = ({
       <Header
         mainText='BITYOUNGJAE'
         subText='개발자하려고 퇴사했습니다'
-        texts={{
-          main: {
-            fontFamily: 'Montserrat, sans-serif',
-            letterSpacing: '.1em',
-          },
-        }}
-        linkProps={{
-          href: '/blog',
-        }}
+        texts={textStyles.header}
+        linkProps={linkProps.home}
         backgroundColor='#4291F7'
       />
 
-      <CategoryNav categoryTree={categoryTree} />
+      <CategoryNav categoryTree={categoryTree} linkProps={linkProps.category} />
 
       <Main>
         <PostList postList={postList} href='/blog/[post]' as='/blog/' />
@@ -53,17 +44,14 @@ const PostListPage: React.FC<ListPageProp> = ({
           current={currentPage}
           total={totalPage}
           displayRange={5}
-          linkProps={{ href: pageHref, as: pageAs }}
+          linkProps={linkProps.page}
           fontSize='1.2rem'
         />
       </Footer>
       <FixedPagination
         current={currentPage}
         total={totalPage}
-        linkProps={{
-          href: pageHref,
-          as: pageAs,
-        }}
+        linkProps={linkProps.page}
       />
     </>
   );
@@ -77,4 +65,4 @@ const Footer = styled.footer`
   padding: 0 0.5rem;
 `;
 
-export default PostListPage;
+export default React.memo(PostListPage);
