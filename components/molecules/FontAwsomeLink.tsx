@@ -1,7 +1,8 @@
 import React from 'react';
 import FontAwsome from '../atoms/FontAwsome';
 import { GetProps } from '../typings/common';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import { bounceAnimation } from '../common/animations';
 
 interface FontAwsomeLinkProps extends GetProps<typeof FontAwsome> {
   href: string;
@@ -18,17 +19,9 @@ const FontAwsomeLink: React.FC<FontAwsomeLinkProps> = ({
   );
 };
 
-const bounce = keyframes`
-from {
-  transform: translateY(0);
-}
-to {
-  transform: translateY(-.3em);
-}`;
-
 const AnimatedAnchor = styled.a`
   &:hover {
-    animation: ${bounce} 0.3s 0.1s infinite alternate;
+    ${bounceAnimation}
   }
 `;
 

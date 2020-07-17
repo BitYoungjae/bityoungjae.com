@@ -1,5 +1,6 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import { fadeInAnimation } from '../common/animations';
 
 interface PageChangeAlaramProps {
   currentPage: number;
@@ -8,14 +9,6 @@ interface PageChangeAlaramProps {
 const PageChangeAlaram: React.FC<PageChangeAlaramProps> = ({ currentPage }) => {
   return <PopUpBox>{`${currentPage} 페이지`}</PopUpBox>;
 };
-
-const padeIn = keyframes`
-from {
-  opacity: 0;
-}
-to {
-  opacity: 1;
-}`;
 
 const PopUpBox = styled.div`
   display: flex;
@@ -37,7 +30,7 @@ const PopUpBox = styled.div`
   font-size: 3rem;
   font-weight: bold;
 
-  animation: ${padeIn} 0.3s alternate;
+  ${fadeInAnimation}
 
   border-radius: 3em;
 `;

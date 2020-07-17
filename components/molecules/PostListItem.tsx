@@ -4,6 +4,38 @@ import styled from 'styled-components';
 import { PostData } from 'poststore/dist/typings';
 import FormattedDate from 'components/atoms/FormattedDate';
 
+interface PostListItemProps {
+  postData: PostData;
+  href: string;
+  as: string;
+}
+
+const PostListItem: React.FC<PostListItemProps> = ({
+  postData: { title, thumbnail, excerpt, date, slug, categories },
+  href,
+  as,
+}) => {
+  return (
+    <Link href={href} as={`${as}${slug}`}>
+      <ListItemBox>
+        {thumbnail && <Thumbnail src={thumbnail} />}
+        <ContentBox>
+          <h2>{title}</h2>
+
+          {excerpt && <p className='excerpt'>{excerpt}</p>}
+          <HR />
+          <InfoBox>
+            {categories && <span>{categories.join('/')}</span>}
+            <span>
+              <FormattedDate date={date} />
+            </span>
+          </InfoBox>
+        </ContentBox>
+      </ListItemBox>
+    </Link>
+  );
+};
+
 const ListItemBox = styled.li`
   list-style: none;
   margin: 0.5rem;
@@ -11,7 +43,7 @@ const ListItemBox = styled.li`
   display: flex;
   flex-direction: column;
 
-  flex-basis: 32rem;
+  flex-basis: 100%;
   flex-grow: 1;
 
   cursor: pointer;
@@ -75,37 +107,5 @@ const HR = styled.div`
   background-color: rgba(0, 0, 0, 0.3);
   margin: 1.5rem 0;
 `;
-
-interface PostListItemProps {
-  postData: PostData;
-  href: string;
-  as: string;
-}
-
-const PostListItem: React.FC<PostListItemProps> = ({
-  postData: { title, thumbnail, excerpt, date, slug, categories },
-  href,
-  as,
-}) => {
-  return (
-    <Link href={href} as={`${as}${slug}`}>
-      <ListItemBox>
-        {thumbnail && <Thumbnail src={thumbnail} />}
-        <ContentBox>
-          <h2>{title}</h2>
-
-          {excerpt && <p className='excerpt'>{excerpt}</p>}
-          <HR />
-          <InfoBox>
-            {categories && <span>{categories.join('/')}</span>}
-            <span>
-              <FormattedDate date={date} />
-            </span>
-          </InfoBox>
-        </ContentBox>
-      </ListItemBox>
-    </Link>
-  );
-};
 
 export default PostListItem;

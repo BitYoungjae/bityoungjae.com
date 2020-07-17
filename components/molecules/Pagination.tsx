@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import { GetProps } from '../typings/common';
 import { getPageRange, getPageRangeProps } from '../utils/getPageRange';
-import { isatty } from 'tty';
 
 interface PaginationProps
   extends getPageRangeProps,
@@ -25,7 +24,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <PaginationBox fontSize={fontSize}>
-      <PageItemLink key={9998} pageNum={1} linkProps={linkProps}>
+      <PageItemLink key={-1} pageNum={1} linkProps={linkProps}>
         {'<<'}
       </PageItemLink>
       {pageRange.map((pageNum) => (
