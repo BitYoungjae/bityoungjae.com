@@ -3,14 +3,16 @@ import { ListPageProp } from 'poststore';
 import styled from 'styled-components';
 import Header from 'components/organism/Header';
 import PostList from 'components/organism/PostList';
-import Pagination from 'components/molecules/Pagination';
+import Pagination from 'components/organism/Pagination';
 import FixedPagination from 'components/molecules/FixedPagination';
 import PageChangeAlaram from 'components/molecules/PageChangeAlarm';
+import CategoryNav from 'components/molecules/CategoryNav';
 
 const pageHref = '/blog/[...page]';
 const pageAs = '/blog/page/';
 
 const PostListPage: React.FC<ListPageProp> = ({
+  global: { categoryTree },
   main: { postList, currentPage, totalPage },
 }) => {
   const [isChangePage, setChangePage] = useState(true);
@@ -40,6 +42,9 @@ const PostListPage: React.FC<ListPageProp> = ({
         }}
         backgroundColor='#4291F7'
       />
+
+      <CategoryNav categoryTree={categoryTree} />
+
       <Main>
         <PostList postList={postList} href='/blog/[post]' as='/blog/' />
       </Main>
