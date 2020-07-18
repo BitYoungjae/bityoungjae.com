@@ -2,7 +2,7 @@ import React from 'react';
 import Tree, { PropInfoNode } from '../atoms/Tree';
 import { IUseLink } from 'components/typings/common';
 import styled from 'styled-components';
-import { PlainList } from 'components/common/styleHelpers';
+import { PlainList } from 'components/styles/plains';
 
 interface CategoryNavProps extends IUseLink {
   categoryTree: PropInfoNode;

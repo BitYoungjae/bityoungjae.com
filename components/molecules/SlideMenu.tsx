@@ -1,36 +1,31 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React, { useState, useCallback } from 'react';
 import FontAwsome from 'components/atoms/FontAwsome';
-import { IUseFont, UseFont } from 'components/styles/helpers';
-import { Flex } from 'components/styles/flex';
-import { Fixed } from 'components/styles/position';
+import { IconNames } from 'components/common/constants';
+import MenuButton from 'components/atoms/MenuButton';
+import MenuBox from 'components/atoms/MenuBox';
 
-const SlideMenu: React.FC = () => {
+const SlideMenu: React.FC = ({ children }) => {
+  const [isOpen, setOpen] = useState(false);
+
+  const buttonHandler = useCallback(() => {
+    setOpen((openState) => !openState);
+  }, [setOpen]);
+
   return (
-    <MenuButton fontSize='2rem'>
-      <FontAwsome iconName='fas fa-bars' color='white' />
-    </MenuButton>
+    <>
+      <MenuButton
+        textSize={isOpen ? '2.3rem' : '2rem'}
+        sizeWidth='5rem'
+        sizeHeight='5rem'
+        onClick={buttonHandler}>
+        <FontAwsome
+          iconName={isOpen ? IconNames.close : IconNames.bars}
+          color='white'
+        />
+      </MenuButton>
+      {isOpen && <MenuBox backgroundColor='#4291f7'>{children}</MenuBox>}
+    </>
   );
 };
 
-interface MenuButtonProps extends IUseFont {}
-
-const MenuButton = styled.button<MenuButtonProps>`
-  ${Flex.center};
-  ${Fixed.center};
-
-  ${UseFont}
-
-  padding: 0.9em;
-  background-color: rgba(0, 0, 0, 0.5);
-
-  border-radius: 50%;
-  border: none;
-
-  ${({ fontSize = '1rem' }) =>
-    css`
-      font-size: ${fontSize};
-    `}
-`;
-
-export default SlideMenu;
+export default React.memo(SlideMenu);

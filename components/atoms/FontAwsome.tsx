@@ -14,4 +14,4 @@ const Icon = styled.i`
   ${UseFont}
 `;
 
-export default FontAwsome;
+export default React.memo(FontAwsome);

@@ -9,4 +9,8 @@ export const Fixed = {
 
     transform: translate(-50%, -50%);
   `,
+  bottom: css`
+    position: fixed;
+    bottom: 0;
+  `,
 };

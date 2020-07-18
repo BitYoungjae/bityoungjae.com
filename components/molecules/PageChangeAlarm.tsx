@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { fadeInAnimation } from 'components/styles/animations/animations';
+import { fadeInAnimation } from 'components/styles/animations';
 
 interface PageChangeAlaramProps {
   currentPage: number;

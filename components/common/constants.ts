@@ -26,3 +26,8 @@ export const textStyles = {
     },
   },
 };
+
+export const IconNames = {
+  bars: 'fas fa-bars',
+  close: 'fas fa-times',
+};

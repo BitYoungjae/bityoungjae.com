@@ -23,3 +23,11 @@ from {
 to {
   transform: translateY(-.3em);
 }`;
+
+export const slideUp = keyframes`
+from {
+  transform: translateY(100%);
+}
+to {
+  transform: translateY(0);
+}`;

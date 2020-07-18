@@ -27,7 +27,12 @@ const PostListPage: React.FC<ListPageProp> = ({
   return (
     <>
       {isChangePage && <PageChangeAlaram currentPage={currentPage} />}
-      <SlideMenu />
+      <SlideMenu>
+        <CategoryNav
+          categoryTree={categoryTree}
+          linkProps={linkProps.category}
+        />
+      </SlideMenu>
       <Header
         mainText='BITYOUNGJAE'
         subText='개발자하려고 퇴사했습니다'

@@ -3,14 +3,14 @@ import { propMap } from './utils/setCssProp';
 
 export interface IUseFont {
   fontFamily?: string;
-  fontSize?: string;
+  textSize?: string;
   color?: string;
   fontWeight?: string;
 }
 
 export const UseFont = propMap<IUseFont>([
   ['fontFamily', 'font-family'],
-  ['fontSize', 'font-size'],
+  ['textSize', 'font-size'],
   ['fontWeight', 'font-weight'],
   ['color', 'color'],
 ]);
@@ -20,9 +20,27 @@ export interface IUseTextSpacing {
   wordSpacing?: string;
 }
 
-export const UseTextSpacing = css<IUseTextSpacing>`
-  ${propMap<IUseTextSpacing>([
-    ['letterSpacing', 'letter-spacing'],
-    ['wordSpacing', 'word-spacing'],
-  ])}
-`;
+export const UseTextSpacing = propMap<IUseTextSpacing>([
+  ['letterSpacing', 'letter-spacing'],
+  ['wordSpacing', 'word-spacing'],
+]);
+
+export interface IUseSize {
+  sizeWidth?: string;
+  sizeHeight?: string;
+}
+
+export const UseSize = propMap<IUseSize>([
+  ['sizeWidth', 'width'],
+  ['sizeHeight', 'height'],
+]);
+
+export interface IUseBackground {
+  background?: string;
+  backgroundColor?: string;
+}
+
+export const UseBackground = propMap<IUseBackground>([
+  ['background', 'background'],
+  ['backgroundColor', 'background-color'],
+]);

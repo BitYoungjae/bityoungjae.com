@@ -3,7 +3,7 @@ import Link from 'next/link';
 import isEqual from 'lodash.isequal';
 import type { IUseLink } from '../typings/common';
 import type { PropInfoNode } from 'poststore';
-import { PlainList } from 'components/common/styleHelpers';
+import { PlainList } from 'components/styles/plains';
 
 interface TreeProps extends IUseLink {
   rootNode: PropInfoNode;
