@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface PageItemProps {
   isActive?: boolean;
+  fontColor?: string;
   buttonColor?: string;
 }
 
@@ -19,7 +20,7 @@ const PageItem = styled.li<PageItemProps>`
 
     color: #95a5a6;
 
-    ${({ isActive = false, buttonColor = 'dodgerBlue' }) =>
+    ${({ isActive = false, buttonColor }) =>
       activeStyle(isActive, buttonColor, 'white')};
 
     border-radius: 0.4em;

@@ -1,13 +1,14 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
-import { GetProps } from '../typings/common';
+import { IUseLink } from '../typings/common';
 import { getPageRangeProps } from '../utils/getPageRange';
 import FontAwsome from 'components/atoms/FontAwsome';
 
-interface FixedPaginationProps extends Omit<getPageRangeProps, 'displayRange'> {
+interface FixedPaginationProps
+  extends Omit<getPageRangeProps, 'displayRange'>,
+    IUseLink {
   fontSize?: string;
-  linkProps: GetProps<Link>;
 }
 
 const FixedPagination: React.FC<FixedPaginationProps> = ({

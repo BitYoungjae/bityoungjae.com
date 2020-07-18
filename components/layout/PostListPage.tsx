@@ -8,6 +8,7 @@ import FixedPagination from 'components/molecules/FixedPagination';
 import PageChangeAlaram from 'components/molecules/PageChangeAlarm';
 import CategoryNav from 'components/molecules/CategoryNav';
 import { linkProps, textStyles } from 'components/common/constants';
+import SlideMenu from 'components/molecules/SlideMenu';
 
 const PostListPage: React.FC<ListPageProp> = ({
   global: { categoryTree },
@@ -26,6 +27,7 @@ const PostListPage: React.FC<ListPageProp> = ({
   return (
     <>
       {isChangePage && <PageChangeAlaram currentPage={currentPage} />}
+      <SlideMenu />
       <Header
         mainText='BITYOUNGJAE'
         subText='개발자하려고 퇴사했습니다'
@@ -33,9 +35,6 @@ const PostListPage: React.FC<ListPageProp> = ({
         linkProps={linkProps.home}
         backgroundColor='#4291F7'
       />
-
-      <CategoryNav categoryTree={categoryTree} linkProps={linkProps.category} />
-
       <Main>
         <PostList postList={postList} href='/blog/[post]' as='/blog/' />
       </Main>

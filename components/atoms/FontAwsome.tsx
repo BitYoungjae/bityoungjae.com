@@ -1,28 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import { IUseFont, UseFont } from 'components/styles/helpers';
 
-interface FontAwsomeProps {
+interface FontAwsomeProps extends IUseFont {
   iconName: string;
-  color?: string;
-  fontSize?: string;
 }
 
-const FontAwsome: React.FC<FontAwsomeProps> = ({
-  iconName,
-  color = 'inherit',
-  fontSize = 'inherit',
-}) => {
-  return <Icon className={iconName} color={color} fontSize={fontSize} />;
+const FontAwsome: React.FC<FontAwsomeProps> = ({ iconName, ...fontProps }) => {
+  return <Icon aria-hidden className={iconName} {...fontProps} />;
 };
 
-interface IconProps {
-  color: string;
-  fontSize: string;
-}
-
-const Icon = styled.i<IconProps>`
-  color: ${({ color }) => color};
-  font-size: ${({ fontSize }) => fontSize};
+const Icon = styled.i`
+  ${UseFont}
 `;
 
 export default FontAwsome;

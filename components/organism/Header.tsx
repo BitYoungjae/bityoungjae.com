@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { GetProps } from '../typings/common';
+import { IUseLink } from '../typings/common';
 import Link from 'next/link';
 import HeaderInfoBox from 'components/molecules/HeaderInfoBox';
 import JobSearchInfo from 'components/atoms/JobSearchInfo';
@@ -8,10 +8,9 @@ import FontAwsomeLink from 'components/molecules/FontAwsomeLink';
 import HeaderIconBox from 'components/molecules/HeaderIconBox';
 import { links } from '../../SiteMeta.json';
 
-interface HeaderProps extends HeaderBoxProps {
+interface HeaderProps extends HeaderBoxProps, IUseLink {
   mainText: string;
   subText?: string;
-  linkProps?: GetProps<Link>;
   texts?: {
     main?: MainTextProps;
     sub?: SubTextProps;

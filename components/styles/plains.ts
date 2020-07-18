@@ -5,3 +5,7 @@ export const PlainList = styled.ul`
   margin: 0;
   padding: 0;
 `;
+
+export const PlainAnchor = styled.a`
+  text-decoration: none;
+`;

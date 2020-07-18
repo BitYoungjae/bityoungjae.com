@@ -1,19 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
-import { GetProps } from '../typings/common';
+import { IUseLink } from '../typings/common';
 import { getPageRange, getPageRangeProps } from '../utils/getPageRange';
 import PageItemLink from 'components/molecules/PageItemLink';
+import { PlainList } from 'components/styles/plains';
 
-interface PaginationProps extends getPageRangeProps, PaginationBoxProps {
-  linkProps: GetProps<Link>;
+interface PaginationProps
+  extends getPageRangeProps,
+    PaginationBoxProps,
+    IUseLink {
+  fontColor?: string;
   buttonColor?: string;
 }
 
 const Pagination: React.FC<PaginationProps> = ({
   linkProps,
   fontSize,
-  buttonColor,
+  fontColor = '#95a5a6',
+  buttonColor = 'dodgerBlue',
   ...paginationProps
 }) => {
   const pageRange = getPageRange(paginationProps);
@@ -45,7 +49,7 @@ interface PaginationBoxProps {
   fontSize?: string;
 }
 
-const PaginationBox = styled.ul<PaginationBoxProps>`
+const PaginationBox = styled(PlainList)<PaginationBoxProps>`
   display: flex;
   justify-content: space-evenly;
 
@@ -56,9 +60,7 @@ const PaginationBox = styled.ul<PaginationBoxProps>`
   background-color: white;
   border: 0.1em solid #ecf0f1;
 
-  margin: 0;
   padding: 0.5em;
-  list-style: none;
 `;
 
 export default React.memo(Pagination);

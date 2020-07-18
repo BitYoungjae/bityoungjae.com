@@ -1,12 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import PageItem from 'components/atoms/PageItem';
-import { GetProps } from 'components/typings/common';
+import { GetProps, IUseLink } from 'components/typings/common';
 
-interface PageItemLinkProps extends GetProps<typeof PageItem> {
+interface PageItemLinkProps extends GetProps<typeof PageItem>, IUseLink {
   pageNum: number;
   current?: number;
-  linkProps: GetProps<Link>;
 }
 
 const PageItemLink: React.FC<PageItemLinkProps> = ({

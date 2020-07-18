@@ -1,84 +1,68 @@
 import React from 'react';
+import Tree, { PropInfoNode } from '../atoms/Tree';
+import { IUseLink } from 'components/typings/common';
 import styled from 'styled-components';
-import Link from 'next/link';
-import isEqual from 'lodash.isequal';
-import type { GetProps } from '../typings/common';
-import type { GlobalProp } from 'poststore';
-import { PlainList } from 'components/common/base';
+import { PlainList } from 'components/common/styleHelpers';
 
-interface CategoryNavProps {
-  categoryTree: GlobalProp['categoryTree'];
-  linkProps: GetProps<Link>;
-  ListComponent?: typeof PlainList;
+interface CategoryNavProps extends IUseLink {
+  categoryTree: PropInfoNode;
 }
 
 const CategoryNav: React.FC<CategoryNavProps> = ({
-  categoryTree,
   linkProps,
-  ListComponent = PlainList,
+  categoryTree,
 }) => {
   return (
     <>
-      <ListComponent>
-        {categoryTree.children &&
-          categoryTree.children.map((child) => {
-            const { name, postCount, slug, children } = child;
-
-            return (
-              <>
-                <CategoryItem key={slug} slug={slug} linkProps={linkProps}>
-                  {name + ' ' + postCount}
-                </CategoryItem>
-                {children && (
-                  <CategoryNav
-                    key={`sub_${slug}`}
-                    categoryTree={child}
-                    ListComponent={SubCategoryList}
-                    linkProps={{
-                      ...linkProps,
-                      as: `${linkProps.as}${slug}/`,
-                    }}
-                  />
-                )}
-              </>
-            );
-          })}
-      </ListComponent>
+      <Tree
+        linkProps={linkProps}
+        rootNode={categoryTree}
+        ContainerView={Container}
+        SubContainerView={SubContainer}
+      />
     </>
   );
 };
 
-interface CategoryItemProps {
-  slug: string;
-  linkProps: GetProps<Link>;
-}
+const Container = styled(PlainList)`
+  display: flex;
+  flex-direction: column;
 
-const CategoryItem: React.FC<CategoryItemProps> = ({
-  slug,
-  linkProps,
-  children,
-}) => {
-  return (
-    <Link {...linkProps} as={`${linkProps.as}${slug}`}>
-      <a>
-        <ListItem>{children}</ListItem>
-      </a>
-    </Link>
-  );
-};
+  justify-content: center;
 
-const SubCategoryList = styled(PlainList)`
-  width: 90%;
-  background-color: gray;
+  position: fixed;
+  width: 100%;
+  height: 50vh;
+
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+
+  padding: 1em;
+  background-color: #4291f7;
+
+  & > li {
+    margin: 0.3em 0;
+  }
+
+  & a {
+    text-decoration: none;
+  }
+
+  & > li a {
+    color: white;
+  }
 `;
 
-const ListItem = styled.li``;
+const SubContainer = styled(PlainList)`
+  margin: 0.6em 0;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0.3em;
 
-export default React.memo(CategoryNav, (prevProps, nextProps) => {
-  const isSame =
-    prevProps.ListComponent === nextProps.ListComponent &&
-    prevProps.linkProps === nextProps.linkProps &&
-    isEqual(prevProps.categoryTree, nextProps.categoryTree);
+  & > li a {
+    color: #2c3e50;
+  }
+`;
 
-  return isSame;
-});
+export default CategoryNav;
