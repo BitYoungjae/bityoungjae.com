@@ -4,6 +4,7 @@ import type { IUseLink } from '../typings/common';
 import type { PropInfoNode } from 'poststore';
 import { PlainList } from 'components/styles/plains';
 import TreeItem, { TreeItemProps } from './TreeItem';
+import { useRouter } from 'next/router';
 
 interface TreeProps extends IUseLink {
   rootNode: PropInfoNode;
@@ -21,14 +22,24 @@ const Tree: React.FC<TreeProps> = ({
   RootTreeItem = TreeItem,
   SubTreeItem = TreeItem,
 }) => {
+  const { asPath } = useRouter();
+  const decodedAsPath = decodeURIComponent(asPath);
+
   return (
     <ContainerView>
       {rootNode.children &&
         rootNode.children.map((childNode) => {
           const { slug, children } = childNode;
+          const itemAsPath = `${linkProps.as}${slug}`;
+          const isActiveItem = decodedAsPath === itemAsPath;
+
           return (
             <React.Fragment key={slug}>
-              <RootTreeItem node={childNode} linkProps={linkProps} />
+              <RootTreeItem
+                node={childNode}
+                linkProps={linkProps}
+                isActive={isActiveItem}
+              />
               {children && (
                 <Tree
                   rootNode={childNode}

@@ -29,3 +29,9 @@ export const SiblingList = styled.li<IUseMargin>`
     ${UseMargin}
   }
 `;
+
+export const BetweenSiblingList = styled(SiblingList)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;

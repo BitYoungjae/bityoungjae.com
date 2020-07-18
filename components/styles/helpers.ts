@@ -1,18 +1,19 @@
-import { css } from 'styled-components';
 import { propMap } from './utils/setCssProp';
 
 export interface IUseFont {
-  fontFamily?: string;
+  textFamily?: string;
   textSize?: string;
   textColor?: string;
-  fontWeight?: string;
+  textWeight?: string;
+  textDeco?: string;
 }
 
 export const UseFont = propMap<IUseFont>([
-  ['fontFamily', 'font-family'],
+  ['textFamily', 'font-family'],
   ['textSize', 'font-size'],
-  ['fontWeight', 'font-weight'],
+  ['textWeight', 'font-weight'],
   ['textColor', 'color'],
+  ['textDeco', 'text-decoration'],
 ]);
 
 export interface IUseTextAlign {
@@ -26,12 +27,12 @@ export const UseTextAlign = propMap<IUseTextAlign>([
 ]);
 
 export interface IUseTextSpacing {
-  letterSpacing?: string;
+  charSpacing?: string;
   wordSpacing?: string;
 }
 
 export const UseTextSpacing = propMap<IUseTextSpacing>([
-  ['letterSpacing', 'letter-spacing'],
+  ['charSpacing', 'letter-spacing'],
   ['wordSpacing', 'word-spacing'],
 ]);
 

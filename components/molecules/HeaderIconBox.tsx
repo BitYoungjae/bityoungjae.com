@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { IUseSize, UseSize } from 'components/styles/helpers';
 
 interface HeaderIconBoxProps {
   count: number;
@@ -13,16 +14,13 @@ const HeaderIconBox: React.FC<HeaderIconBoxProps> = ({
   children,
 }) => {
   const width = `calc(${fontSize} * ${count} + ${padding})`;
-  return <IconBox width={width}>{children}</IconBox>;
+  return <IconBox sizeWidth={width}>{children}</IconBox>;
 };
 
-interface IconBoxProps {
-  width: string;
-}
-
-const IconBox = styled.div<IconBoxProps>`
+const IconBox = styled.div<IUseSize>`
   display: flex;
-  width: ${({ width }) => width};
+
+  ${UseSize}
 
   justify-content: space-between;
   align-items: center;

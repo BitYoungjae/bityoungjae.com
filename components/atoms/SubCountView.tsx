@@ -7,8 +7,8 @@ const SubCountView: React.FC = ({ children }) => (
     sizeWidth='1.5rem'
     sizeHeight='1.5rem'
     textColor='white'
-    backgroundColor={Colors.Primary}
-    fontWeight='bold'
+    backgroundColor='rgba(0, 0, 0, .7)'
+    textWeight='bold'
     marginLeft='.5em'
     verticalAlign='middle'>
     {children}

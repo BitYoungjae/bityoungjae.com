@@ -24,7 +24,7 @@ const SlideMenu: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         />
       </MenuButton>
       {isOpen && (
-        <MenuBox backgroundColor='#4291f7' padding='2rem 1rem 0'>
+        <MenuBox backgroundColor='#4291f7' padding='3rem .5rem 0'>
           {children}
         </MenuBox>
       )}

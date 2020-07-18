@@ -4,19 +4,16 @@ import { IUseLink } from '../typings/common';
 import { getPageRange, getPageRangeProps } from '../utils/getPageRange';
 import PageItemLink from 'components/molecules/PageItemLink';
 import { PlainList } from 'components/styles/plains';
+import { IUseFont, UseFont } from 'components/styles/helpers';
 
-interface PaginationProps
-  extends getPageRangeProps,
-    PaginationBoxProps,
-    IUseLink {
-  fontColor?: string;
+interface PaginationProps extends getPageRangeProps, IUseLink {
+  textSize?: string;
   buttonColor?: string;
 }
 
 const Pagination: React.FC<PaginationProps> = ({
   linkProps,
-  fontSize,
-  fontColor = '#95a5a6',
+  textSize,
   buttonColor = 'dodgerBlue',
   ...paginationProps
 }) => {
@@ -26,7 +23,7 @@ const Pagination: React.FC<PaginationProps> = ({
   if (!pageRange) return;
 
   return (
-    <PaginationBox fontSize={fontSize}>
+    <PaginationBox textSize={textSize}>
       <PageItemLink key={-1} pageNum={1} linkProps={linkProps}>
         {'<<'}
       </PageItemLink>
@@ -45,15 +42,12 @@ const Pagination: React.FC<PaginationProps> = ({
     </PaginationBox>
   );
 };
-interface PaginationBoxProps {
-  fontSize?: string;
-}
 
-const PaginationBox = styled(PlainList)<PaginationBoxProps>`
+const PaginationBox = styled(PlainList)<IUseFont>`
   display: flex;
   justify-content: space-evenly;
 
-  font-size: ${({ fontSize = '1rem' }) => fontSize};
+  ${UseFont}
 
   border-radius: 0.5em;
 

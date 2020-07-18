@@ -2,18 +2,32 @@ import React from 'react';
 import TreeItem, { TreeItemProps } from '../atoms/TreeItem';
 import RootNameView from 'components/atoms/RootNameView';
 import RootCountView from 'components/atoms/RootCountView';
-import { SiblingList } from 'components/styles/alias';
+import { SiblingList, BetweenSiblingList } from 'components/styles/alias';
+import styled from 'styled-components';
+import FontAwsome from 'components/atoms/FontAwsome';
 
-const RootCategoryItem: React.FC<TreeItemProps> = ({ node, linkProps }) => {
+const RootCategoryItem: React.FC<TreeItemProps> = ({
+  node,
+  linkProps,
+  isActive,
+}) => {
   return (
-    <SiblingList marginTop='.5rem'>
+    <BetweenSiblingList marginTop='.5rem'>
       <TreeItem
         linkProps={linkProps}
         node={node}
         NameView={RootNameView}
         CountView={RootCountView}
+        isActive={isActive}
       />
-    </SiblingList>
+      {isActive && (
+        <FontAwsome
+          iconName='fas fa-glasses'
+          textColor='white'
+          textSize='1.4rem'
+        />
+      )}
+    </BetweenSiblingList>
   );
 };
 

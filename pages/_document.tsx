@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
           <link rel='stylesheet' href='/styles/normalize.css' />
           <link rel='stylesheet' href='/styles/common.css' />
           <link
-            href='https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR&family=Montserrat:wght@900&display=swap'
+            href='https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;700&family=Montserrat:wght@900&display=swap'
             rel='stylesheet'
           />
           <script
