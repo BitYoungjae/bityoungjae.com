@@ -12,7 +12,7 @@ const InfoBox = styled.div`
   width: 97%;
 
   position: absolute;
-  bottom: 0.7rem;
+  bottom: 5%;
 
   z-index: 3;
 `;

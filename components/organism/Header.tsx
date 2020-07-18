@@ -87,7 +87,7 @@ const HeaderBox = styled.header<HeaderBoxProps>`
 
   font-size: ${({ fontSize = '1.8rem' }) => fontSize};
 
-  height: 4.7em;
+  height: 5em;
   overflow: hidden;
 
   background-color: ${({ backgroundColor = '#4291F7' }) => backgroundColor};

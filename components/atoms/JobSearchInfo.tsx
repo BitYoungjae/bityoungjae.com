@@ -5,7 +5,7 @@ import FontAwsome from 'components/atoms/FontAwsome';
 const JobSearchInfo: React.FC = () => {
   return (
     <InfoBox>
-      <FontAwsome iconName='fas fa-bell' fontSize='1.3rem' color='#55E05B' />
+      <FontAwsome iconName='fas fa-bell' textSize='1.3rem' color='#55E05B' />
       {'구직중'}
     </InfoBox>
   );
@@ -19,7 +19,7 @@ const InfoBox = styled.button`
   font-size: 1rem;
   font-weight: bold;
 
-  width: 6.5em;
+  width: 6em;
 
   color: white;
   background-color: #1f1f26;
@@ -27,7 +27,7 @@ const InfoBox = styled.button`
   border-radius: 2em;
   border: none;
 
-  padding: 0.7em 1em;
+  padding: 0.6em 1em;
 `;
 
 export default JobSearchInfo;
