@@ -4,7 +4,9 @@ import { IconNames } from 'components/common/constants';
 import MenuButton from 'components/atoms/MenuButton';
 import MenuBox from 'components/atoms/MenuBox';
 
-const SlideMenu: React.FC = ({ children }) => {
+const SlideMenu: React.FC<{ children: React.ReactElement }> = ({
+  children,
+}) => {
   const [isOpen, setOpen] = useState(false);
 
   const buttonHandler = useCallback(() => {
