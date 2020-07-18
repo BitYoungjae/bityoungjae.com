@@ -4,9 +4,7 @@ import { IconNames } from 'components/common/constants';
 import MenuButton from 'components/atoms/MenuButton';
 import MenuBox from 'components/atoms/MenuBox';
 
-const SlideMenu: React.FC<{ children: React.ReactElement }> = ({
-  children,
-}) => {
+const SlideMenu: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isOpen, setOpen] = useState(false);
 
   const buttonHandler = useCallback(() => {
@@ -22,10 +20,14 @@ const SlideMenu: React.FC<{ children: React.ReactElement }> = ({
         onClick={buttonHandler}>
         <FontAwsome
           iconName={isOpen ? IconNames.close : IconNames.bars}
-          color='white'
+          textColor='white'
         />
       </MenuButton>
-      {isOpen && <MenuBox backgroundColor='#4291f7'>{children}</MenuBox>}
+      {isOpen && (
+        <MenuBox backgroundColor='#4291f7' padding='2rem 1rem 0'>
+          {children}
+        </MenuBox>
+      )}
     </>
   );
 };

@@ -31,3 +31,7 @@ export const IconNames = {
   bars: 'fas fa-bars',
   close: 'fas fa-times',
 };
+
+export const Colors = {
+  Primary: '#4291f7',
+};

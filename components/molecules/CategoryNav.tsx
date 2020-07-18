@@ -3,6 +3,10 @@ import Tree, { PropInfoNode } from '../atoms/Tree';
 import { IUseLink } from 'components/typings/common';
 import styled from 'styled-components';
 import { PlainList } from 'components/styles/plains';
+import RootCategoryItem from 'components/molecules/RootCategoryItem';
+import SubCategoryItem from 'components/molecules/SubCategoryItem';
+import { Colors } from 'components/common/constants';
+import { Flex } from 'components/styles/flex';
 
 interface CategoryNavProps extends IUseLink {
   categoryTree: PropInfoNode;
@@ -14,11 +18,14 @@ const CategoryNav: React.FC<CategoryNavProps> = ({
 }) => {
   return (
     <>
+      <Heading>Category</Heading>
       <Tree
         linkProps={linkProps}
         rootNode={categoryTree}
         ContainerView={Container}
         SubContainerView={SubContainer}
+        RootTreeItem={RootCategoryItem}
+        SubTreeItem={SubCategoryItem}
       />
     </>
   );
@@ -28,30 +35,8 @@ const Container = styled(PlainList)`
   display: flex;
   flex-direction: column;
 
-  justify-content: center;
-
-  position: fixed;
   width: 100%;
-  height: 50vh;
-
-  bottom: 0;
-  right: 0;
-  z-index: 999;
-
-  padding: 1em;
-  background-color: #4291f7;
-
-  & > li {
-    margin: 0.3em 0;
-  }
-
-  & a {
-    text-decoration: none;
-  }
-
-  & > li a {
-    color: white;
-  }
+  background-color: ${Colors.Primary};
 `;
 
 const SubContainer = styled(PlainList)`
@@ -63,6 +48,12 @@ const SubContainer = styled(PlainList)`
   & > li a {
     color: #2c3e50;
   }
+`;
+
+const Heading = styled.h2`
+  ${Flex.center}
+  color: white;
+  margin: 0.8em 0;
 `;
 
 export default CategoryNav;

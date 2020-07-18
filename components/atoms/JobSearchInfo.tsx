@@ -5,7 +5,11 @@ import FontAwsome from 'components/atoms/FontAwsome';
 const JobSearchInfo: React.FC = () => {
   return (
     <InfoBox>
-      <FontAwsome iconName='fas fa-bell' textSize='1.3rem' color='#55E05B' />
+      <FontAwsome
+        iconName='fas fa-bell'
+        textSize='1.3rem'
+        textColor='#55E05B'
+      />
       {'구직중'}
     </InfoBox>
   );

@@ -51,19 +51,19 @@ const Header: React.FC<HeaderProps> = ({
         <HeaderIconBox count={3} fontSize='2.3rem' padding='1rem'>
           <FontAwsomeLink
             iconName='fab fa-twitter-square'
-            color='white'
+            textColor='white'
             textSize='2.3rem'
             href={links.twitter}
           />
           <FontAwsomeLink
             iconName='fab fa-github'
-            color='white'
+            textColor='white'
             textSize='2.3rem'
             href={links.github}
           />
           <FontAwsomeLink
             iconName='fas fa-envelope'
-            color='white'
+            textColor='white'
             textSize='2.3rem'
             href={links.email}
           />
