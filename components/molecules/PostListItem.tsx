@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { PostData } from 'poststore/dist/typings';
+import { ShortPostData } from 'poststore/dist/typings';
 import FormattedDate from 'components/atoms/FormattedDate';
 
 interface PostListItemProps {
-  postData: PostData;
+  postData: ShortPostData;
   href: string;
   as: string;
 }

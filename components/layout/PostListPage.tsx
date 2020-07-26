@@ -1,72 +1,56 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo, useContext } from 'react';
 import { ListPageProp } from 'poststore';
-import styled from 'styled-components';
-import Header from 'components/organism/Header';
 import PostList from 'components/organism/PostList';
 import Pagination from 'components/organism/Pagination';
 import FixedPagination from 'components/molecules/FixedPagination';
 import PageChangeAlaram from 'components/molecules/PageChangeAlarm';
-import CategoryNav from 'components/molecules/CategoryNav';
-import { linkProps, textStyles } from 'components/common/constants';
-import SlideMenu from 'components/molecules/SlideMenu';
+import CommonLayout, { Main, Footer } from './CommonLayout';
+import { IUseLink } from 'components/typings/common';
+import { trimPageParam } from 'components/common/utils';
+import { SiteContext } from 'pages/_app';
 
-const PostListPage: React.FC<ListPageProp> = ({
-  global: { categoryTree },
+const PostListPage: React.FC<ListPageProp & IUseLink> = ({
+  param,
+  global: { categoryTree, tagList },
   main: { postList, currentPage, totalPage },
+  linkProps,
 }) => {
-  const [isChangePage, setChangePage] = useState(true);
+  const trimmedParam = trimPageParam(param);
+  const paginationAs = `${linkProps.as}${
+    trimmedParam && trimmedParam + '/page/'
+  }`;
 
-  useEffect(() => {
-    const timerId = setTimeout(() => setChangePage(false), 700);
-    return () => {
-      clearTimeout(timerId);
-      setChangePage(true);
-    };
-  }, [currentPage]);
+  const { isTabletOrMobile } = useContext(SiteContext);
+
+  const paginationLinkProps = {
+    ...linkProps,
+    as: paginationAs,
+  };
 
   return (
-    <>
-      {isChangePage && <PageChangeAlaram currentPage={currentPage} />}
-      <SlideMenu>
-        <CategoryNav
-          categoryTree={categoryTree}
-          linkProps={linkProps.category}
-        />
-      </SlideMenu>
-      <Header
-        mainText='BITYOUNGJAE'
-        subText='개발자하려고 퇴사했습니다'
-        texts={textStyles.header}
-        linkProps={linkProps.home}
-        backgroundColor='#4291F7'
-      />
-      <Main>
-        <PostList postList={postList} href='/blog/[post]' as='/blog/' />
-      </Main>
+    <CommonLayout categoryTree={categoryTree} tagList={tagList}>
+      {isTabletOrMobile && <PageChangeAlaram currentPage={currentPage} />}
+
+      <PostList postList={postList} href='/[post]' as='/' />
+
       <Footer>
         <Pagination
           current={currentPage}
           total={totalPage}
           displayRange={5}
-          linkProps={linkProps.page}
-          fontSize='1.2rem'
+          linkProps={paginationLinkProps}
+          textSize='1.2rem'
         />
       </Footer>
-      <FixedPagination
-        current={currentPage}
-        total={totalPage}
-        linkProps={linkProps.page}
-      />
-    </>
+      {isTabletOrMobile && (
+        <FixedPagination
+          current={currentPage}
+          total={totalPage}
+          linkProps={paginationLinkProps}
+        />
+      )}
+    </CommonLayout>
   );
 };
-
-const Main = styled.section`
-  padding: 0.8rem 0.5rem;
-`;
-
-const Footer = styled.footer`
-  padding: 0 0.5rem;
-`;
 
 export default React.memo(PostListPage);

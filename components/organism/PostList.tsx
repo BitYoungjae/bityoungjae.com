@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostData } from 'poststore/dist/typings';
+import { ShortPostData } from 'poststore/dist/typings';
 import styled from 'styled-components';
 import PostListItem from '../molecules/PostListItem';
 
@@ -12,7 +12,7 @@ const ListBox = styled.ul`
 `;
 
 interface PostListProps {
-  postList: PostData[];
+  postList: ShortPostData[];
   href: string;
   as: string;
 }

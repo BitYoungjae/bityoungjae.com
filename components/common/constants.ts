@@ -1,14 +1,18 @@
 export const linkProps = {
   home: {
-    href: '/blog',
+    href: '/',
   },
   category: {
-    href: '/blog/categories/[...category]',
-    as: '/blog/categories/',
+    href: '/categories/[...category]',
+    as: '/categories/',
   },
   page: {
-    href: '/blog/[...page]',
-    as: '/blog/page/',
+    href: '/[...page]',
+    as: '/page/',
+  },
+  tag: {
+    href: '/tags/[...tag]',
+    as: '/tags/',
   },
 };
 

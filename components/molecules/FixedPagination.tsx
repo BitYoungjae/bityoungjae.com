@@ -15,7 +15,6 @@ const FixedPagination: React.FC<FixedPaginationProps> = ({
   current,
   total,
   linkProps,
-  fontSize = '1.5rem',
 }) => {
   if (!current || !total || !linkProps) return null;
 
@@ -27,7 +26,7 @@ const FixedPagination: React.FC<FixedPaginationProps> = ({
       {hasLeft && (
         <Link {...linkProps} as={`${linkProps.as}${current - 1}`}>
           <a>
-            <FixedArrowButton position='left' fontSize={fontSize}>
+            <FixedArrowButton position='left'>
               <FontAwsome iconName='fas fa-arrow-left' />
             </FixedArrowButton>
           </a>
@@ -36,7 +35,7 @@ const FixedPagination: React.FC<FixedPaginationProps> = ({
       {hasRight && (
         <Link {...linkProps} as={`${linkProps.as}${current + 1}`}>
           <a>
-            <FixedArrowButton position='right' fontSize={fontSize}>
+            <FixedArrowButton position='right'>
               <FontAwsome iconName='fas fa-arrow-right' />
             </FixedArrowButton>
           </a>
@@ -53,7 +52,7 @@ interface FixedArrowButtonProps {
 const FixedArrowButton = styled.button<FixedArrowButtonProps>`
   position: fixed;
 
-  font-size: ${({ fontSize }) => fontSize};
+  font-size: 1.5rem;
 
   width: 3em;
   height: 3em;

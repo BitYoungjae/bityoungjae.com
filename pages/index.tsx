@@ -1,8 +1,11 @@
 import React from 'react';
-import PostListPage from '../../components/layout/PostListPage';
+import PostListPage from '../components/layout/PostListPage';
 import { getMainPageHandler, ListPageProp } from 'poststore';
+import { linkProps } from 'components/common/constants';
 
-const Post: React.FC<ListPageProp> = (props) => <PostListPage {...props} />;
+const Post: React.FC<ListPageProp> = (props) => (
+  <PostListPage {...props} linkProps={linkProps.page} />
+);
 
 export default Post;
 

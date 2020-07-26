@@ -1,7 +1,10 @@
 import { getPageHandler, ListPageProp } from 'poststore';
 import PostListPage from 'components/layout/PostListPage';
+import { linkProps } from 'components/common/constants';
 
-const Page: React.FC<ListPageProp> = (props) => <PostListPage {...props} />;
+const Page: React.FC<ListPageProp> = (props) => (
+  <PostListPage {...props} linkProps={linkProps.page} />
+);
 
 export default Page;
 

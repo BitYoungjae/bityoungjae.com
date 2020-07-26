@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { fadeInAnimation } from 'components/styles/animations';
 
@@ -7,7 +7,17 @@ interface PageChangeAlaramProps {
 }
 
 const PageChangeAlaram: React.FC<PageChangeAlaramProps> = ({ currentPage }) => {
-  return <PopUpBox>{`${currentPage} 페이지`}</PopUpBox>;
+  const [isChangePage, setChangePage] = useState(true);
+
+  useEffect(() => {
+    const timerId = setTimeout(() => setChangePage(false), 700);
+    return () => {
+      clearTimeout(timerId);
+      setChangePage(true);
+    };
+  }, [currentPage]);
+
+  return isChangePage && <PopUpBox>{`${currentPage} 페이지`}</PopUpBox>;
 };
 
 const PopUpBox = styled.div`

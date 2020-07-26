@@ -7,5 +7,6 @@ export const PlainList = styled.ul`
 `;
 
 export const PlainAnchor = styled.a`
+  cursor: pointer;
   text-decoration: none;
 `;
