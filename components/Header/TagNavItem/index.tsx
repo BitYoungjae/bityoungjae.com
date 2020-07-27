@@ -1,5 +1,5 @@
 import React from 'react';
-import NavItem from '../NavItem';
+import NavItem from '../common/NavItem';
 import { GlobalProp } from 'poststore';
 import HideableContainer from 'components/Header/common/HideableContainer';
 import { useMouseHover } from 'components/hooks/useMouseHover';

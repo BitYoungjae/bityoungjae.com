@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import FontAwsome from '../common/FontAwsome';
+import FontAwsome from '../../common/FontAwsome';
 import { GetProps } from 'components/typings/GetProps';
 
 interface NavItemProps extends GetProps<typeof NavButton> {

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import NavItem from '../NavItem';
+import NavItem from '../common/NavItem';
 import BuildInfo from './BuildInfo';
 import { GlobalProp } from 'poststore';
 import HideableContainer from 'components/Header/common/HideableContainer';

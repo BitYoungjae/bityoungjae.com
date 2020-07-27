@@ -1,6 +1,6 @@
 import { GlobalProp } from 'poststore';
 import { useMouseHover } from 'components/hooks/useMouseHover';
-import NavItem from '../NavItem';
+import NavItem from '../common/NavItem';
 import HideableContainer from '../common/HideableContainer';
 import PlainListItem from '../common/PlainListItem';
 import styled from 'styled-components';

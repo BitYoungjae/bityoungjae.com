@@ -3,13 +3,11 @@ import Container from './Container';
 import InnerContainer from './InnerContainer';
 import Logo from './Logo';
 import NavContainer from './NavContainer';
-import NavItem from './NavItem';
 import { useScrollPercent } from 'components/hooks/useScrollPercent';
-import OutLinkContainer from './OutLinkContainer';
 import RightContainer from './RightContainer';
 import OutLinkItem from './OutLinkItem';
 import { GlobalProp } from 'poststore';
-import NavItemLink from './NavItemLink';
+import NavItemLink from './common/NavItemLink';
 import BuildInfoItem from './BuildInfoItem';
 import TagNavItem from './TagNavItem';
 import CategoryNavItem from './CategoryNavItem';
@@ -32,7 +30,7 @@ const Header: React.FC<HeaderProps> = (globalProps) => {
             <TagNavItem tagList={globalProps.tagList} />
             <BuildInfoItem {...globalProps} />
           </NavContainer>
-          <OutLinkContainer>
+          <NavContainer>
             <OutLinkItem
               iconName='fab fa-github'
               size='big'
@@ -43,7 +41,7 @@ const Header: React.FC<HeaderProps> = (globalProps) => {
               size='big'
               href='mailto:bityoungjae@gmail.com'
             />
-          </OutLinkContainer>
+          </NavContainer>
         </RightContainer>
       </InnerContainer>
     </Container>
