@@ -1,20 +1,32 @@
-import { css } from 'styled-components';
-import { fadeIn, fadeOut, bounce, slideUp } from './keyframes';
+import {
+  slideUp,
+  slideDown,
+  fadeIn,
+  fadeOut,
+  slideUpAndFadeIn,
+  slideDownAndFadeIn,
+} from './keyframes';
+import { makeAnimation, AnimationOptions } from './utils';
 
-export const fadeInAnimation = css`
-  animation: ${fadeIn} 0.3s alternate;
-`;
+const forwardOption: AnimationOptions = {
+  duration: '.5s',
+  fillMode: 'forwards',
+};
 
-export const fadeOutAnimation = css`
-  animation: ${fadeOut} 0.3s alternate;
-`;
+export const Slide = {
+  up: makeAnimation({ keyframe: slideUp, option: forwardOption }),
+  down: makeAnimation({ keyframe: slideDown, option: forwardOption }),
+};
 
-export const bounceAnimation = css`
-  animation: ${bounce} 0.3s 0.1s infinite alternate;
-`;
+export const Fade = {
+  in: makeAnimation({ keyframe: fadeIn, option: forwardOption }),
+  out: makeAnimation({ keyframe: fadeOut, option: forwardOption }),
+};
 
-export const slideAnimation = {
-  up: css`
-    animation: ${slideUp} 0.5s 1 forwards;
-  `,
+export const SlideAndFade = {
+  upAndIn: makeAnimation({ keyframe: slideUpAndFadeIn, option: forwardOption }),
+  downAndIn: makeAnimation({
+    keyframe: slideDownAndFadeIn,
+    option: forwardOption,
+  }),
 };

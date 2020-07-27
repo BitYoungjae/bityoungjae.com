@@ -1,33 +1,53 @@
 import { keyframes } from 'styled-components';
 
+export const slideUp = keyframes`
+  from {
+    transform: translate(0, 100%);
+  } to {
+    transform: translate(0, 0);
+  }
+`;
+
+export const slideDown = keyframes`
+  from {
+    transform: translate(0, -100%);
+  } to {
+    transform: translate(0, 0);
+  }
+`;
+
 export const fadeIn = keyframes`
 from {
   opacity: 0;
+} to {
+  opacity: 100%;
 }
-to {
-  opacity: 1;
-}`;
+`;
 
 export const fadeOut = keyframes`
 from {
-  opacity: 1;
+  opacity: 100%;
+} to {
+  opacity: 0%;
 }
-to {
+`;
+
+export const slideUpAndFadeIn = keyframes`
+from {
   opacity: 0;
-}`;
-
-export const bounce = keyframes`
-from {
-  transform: translateY(0);
+  transform: translate(0, 100%);
 }
 to {
-  transform: translateY(-.3em);
+  opacity: 100%;
+  transform: translate(0, 0);
 }`;
 
-export const slideUp = keyframes`
+export const slideDownAndFadeIn = keyframes`
 from {
-  transform: translateY(100%);
+  opacity: 0;
+  transform: translate(0, -100%);
 }
 to {
-  transform: translateY(0);
+  opacity: 100%;
+  transform: translate(0, 0);
 }`;

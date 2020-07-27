@@ -1,12 +1,12 @@
 import React from 'react';
-import { getMainPageHandler, ListPageProp } from 'poststore';
+import { getGlobalPageHandler, GlobalProp } from 'poststore';
 import Header from '../components/Header';
 
-const Post: React.FC<ListPageProp> = ({ global }) => <Header {...global} />;
+const About: React.FC<GlobalProp> = ({ ...global }) => <Header {...global} />;
 
-export default Post;
+export default About;
 
-const { getMainProps } = getMainPageHandler({
+const { getMainProps } = getGlobalPageHandler({
   storeName: 'blog',
   useConfig: true,
 });

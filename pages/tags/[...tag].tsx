@@ -1,10 +1,6 @@
 import { getTagPageHandler, ListPageProp } from 'poststore';
-import PostListPage from 'components/layout/PostListPage';
-import { linkProps } from 'components/common/constants';
 
-const TagPage: React.FC<ListPageProp> = (props) => (
-  <PostListPage {...props} linkProps={linkProps.tag} />
-);
+const TagPage: React.FC<ListPageProp> = (props) => <p>1</p>;
 
 export default TagPage;
 

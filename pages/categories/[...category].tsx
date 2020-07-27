@@ -1,10 +1,6 @@
 import { getCategoryPageHandler, ListPageProp } from 'poststore';
-import PostListPage from 'components/layout/PostListPage';
-import { linkProps } from 'components/common/constants';
 
-const CategoryPage: React.FC<ListPageProp> = (props) => (
-  <PostListPage {...props} linkProps={linkProps.category} />
-);
+const CategoryPage: React.FC<ListPageProp> = ({ global }) => <p>1</p>;
 
 export default CategoryPage;
 

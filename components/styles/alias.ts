@@ -1,37 +1,11 @@
-import styled, { css } from 'styled-components';
-import {
-  IUseFont,
-  UseFont,
-  IUseTextAlign,
-  IUseTextSpacing,
-  UseTextSpacing,
-  UseTextAlign,
-  IUseMargin,
-  UseMargin,
-} from './helpers';
-import { Flex } from './flex';
+import styled from 'styled-components';
 
-export const SpanWithFontStyle = styled.span<
-  IUseFont & IUseTextAlign & IUseTextSpacing
->`
-  ${UseFont}
-  ${UseTextAlign}
-  ${UseTextSpacing}
+export const PlainAnchor = styled.a`
+  text-decoration: none;
 `;
 
-export const CircleStyle = css`
-  ${Flex.center}
-  border-radius: 50%;
-`;
-
-export const SiblingList = styled.li<IUseMargin>`
-  & + & {
-    ${UseMargin}
-  }
-`;
-
-export const BetweenSiblingList = styled(SiblingList)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+export const PlainList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
 `;
