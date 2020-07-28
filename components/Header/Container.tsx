@@ -17,11 +17,10 @@ const StyledContainer = styled.header<ContainerProps>`
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 20vw;
-
   position: fixed;
 
   width: 100vw;
+  padding: 0 20vw;
 
   background-color: transparent;
   transition: background-color 0.3s;
@@ -30,7 +29,7 @@ const StyledContainer = styled.header<ContainerProps>`
 `;
 
 const filledStyle = css`
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.filledHeader};
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.3);
 `;
 

@@ -6,6 +6,7 @@ export const theme: SiteTheme = {
     green: '#27ae60',
     blue: '#0984E3',
     lightGray: '#7f8c8d',
+    filledHeader: 'white',
   },
   fontSize: {
     normal: '1rem',
