@@ -25,7 +25,7 @@ const CategoryNavItem: React.FC<TagNavItemProps> = ({ rootCategoryNode }) => {
     <>
       <NavItem onMouseEnter={hoverMouseEvent} onMouseLeave={hoverMouseEvent}>
         카테고리
-        <CategoryContainer isShow={true}>
+        <CategoryContainer isShow={isHover}>
           {displayList.map((list, index) => (
             <CategoryList
               list={list}
