@@ -40,6 +40,7 @@ const CategoryNavItem: React.FC<TagNavItemProps> = ({ rootCategoryNode }) => {
 };
 
 const CategoryContainer = styled(PopUpContainer)`
+  padding: 0;
   ${({ isShow }) =>
     isShow &&
     css`

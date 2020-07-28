@@ -37,7 +37,11 @@ const CategoryList: React.FC<CategoryListProps> = ({
 };
 
 const CategoryItemBox = styled(PlainList)`
-  width: auto;
+  & + & {
+    border-left: 0.1rem solid ${({ theme }) => theme.colors.lightGray};
+  }
+  width: 13rem;
+  padding: 1rem;
 `;
 
 interface CategoryListItemProps extends PropInfoNode {
@@ -61,8 +65,8 @@ const CategoryListItem: React.FC<CategoryListItemProps> = ({
         onReconcilList(index, childList);
         hoverMouseEvent();
       }}>
-      <NameBox>{name}</NameBox>
-      <CountBox>{postCount}</CountBox>
+      <NameBox size='small'>{name}</NameBox>
+      <CountBox size='small'>{postCount}</CountBox>
     </ListItemBox>
   );
 };
