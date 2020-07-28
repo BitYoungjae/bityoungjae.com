@@ -3,7 +3,7 @@ import NavItem from '../common/NavItem';
 import { GlobalProp } from 'poststore';
 import HideableContainer from 'components/Header/common/HideableContainer';
 import { useMouseHover } from 'components/hooks/useMouseHover';
-import styled from 'styled-components';
+import { styled } from 'components/typings/Theme';
 import PopUpContainer from '../common/PopUpContainer';
 import ListItemBox from '../common/ListItemBox';
 import PlainListItem from '../common/PlainListItem';

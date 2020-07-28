@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import styled from 'styled-components';
+import { styled } from 'components/typings/Theme';
 
 const Logo: React.FC = () => {
   return (

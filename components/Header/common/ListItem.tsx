@@ -1,6 +1,6 @@
 import { GetProps } from 'components/typings/GetProps';
 import FontAwsome from 'components/common/FontAwsome';
-import styled from 'styled-components';
+import { styled } from 'components/typings/Theme';
 import ListItemBox from './ListItemBox';
 import TextBox from 'components/common/TextBox';
 

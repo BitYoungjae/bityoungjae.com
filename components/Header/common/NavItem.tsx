@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import FontAwsome from '../../common/FontAwsome';
 import { GetProps } from 'components/typings/GetProps';
+import { styled } from 'components/typings/Theme';
 
 interface NavItemProps extends GetProps<typeof NavButton> {
   hasDropdown?: boolean;
@@ -30,7 +30,7 @@ const NavButton = styled.button`
 
   padding: 1rem 0.5rem;
 
-  font-size: ${(props) => props.theme.fontSize.navItem};
+  font-size: ${(props) => props.theme.fontSize.normal};
   color: ${(props) => props.theme.colors.lightGray};
   cursor: pointer;
 

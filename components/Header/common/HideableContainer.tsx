@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'components/typings/Theme';
 
 const HideableContainer = styled.div`
   position: absolute;

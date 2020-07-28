@@ -1,8 +1,14 @@
 import React from 'react';
 import { getMainPageHandler, ListPageProp } from 'poststore';
 import Header from '../components/Header';
+import Hero from 'components/Hero';
 
-const Post: React.FC<ListPageProp> = ({ global }) => <Header {...global} />;
+const Post: React.FC<ListPageProp> = ({ global }) => (
+  <>
+    <Header {...global} />
+    <Hero />
+  </>
+);
 
 export default Post;
 

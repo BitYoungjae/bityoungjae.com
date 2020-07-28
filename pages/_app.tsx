@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../components/styles/theme';
+import { theme } from '../components/styles/themes/default';
 
 function PostStoreApp({ Component, pageProps }) {
   return (

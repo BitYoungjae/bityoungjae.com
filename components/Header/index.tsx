@@ -8,7 +8,7 @@ import NavItemLink from './common/NavItemLink';
 import BuildInfoItem from './BuildInfoItem';
 import TagNavItem from './TagNavItem';
 import CategoryNavItem from './CategoryNavItem';
-import styled from 'styled-components';
+import { styled } from 'components/typings/Theme';
 
 interface HeaderProps extends GlobalProp {}
 

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'components/typings/Theme';
 import { PlainList } from 'components/styles/alias';
 
 const PopUpContainer = styled(PlainList)`

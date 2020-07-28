@@ -1,9 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'components/typings/Theme';
+import { IconSize } from 'components/typings/Theme';
 
 interface FontAwsomeProps {
   iconName: string;
-  size?: 'big' | 'small' | 'normal';
+  size?: IconSize;
 }
 
 const FontAwsome: React.FC<FontAwsomeProps> = ({

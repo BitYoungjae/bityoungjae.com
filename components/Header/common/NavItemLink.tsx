@@ -1,7 +1,7 @@
 import React from 'react';
 import { GetProps } from 'components/typings/GetProps';
 import NavItem from './NavItem';
-import styled from 'styled-components';
+import { styled } from 'components/typings/Theme';
 import { PlainAnchor } from 'components/styles/alias';
 import Link from 'next/link';
 
