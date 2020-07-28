@@ -29,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({
         <NavItemLink href='/about' hasDropdown={false}>
           나에 대하여
         </NavItemLink>
-        <CategoryNavItem categoryTree={categoryTree} />
+        <CategoryNavItem rootCategoryNode={categoryTree} />
         <TagNavItem tagList={tagList} />
         <BuildInfoNavItem
           buildTime={buildTime}

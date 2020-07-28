@@ -2,11 +2,11 @@ import { styled } from 'components/typings/Theme';
 import { FontSize } from 'components/typings/Theme';
 
 interface TextBoxProps {
-  size: FontSize;
+  size?: FontSize;
 }
 
 const TextBox = styled.span<TextBoxProps>`
-  font-size: ${({ theme, size }) => theme.fontSize[size]};
+  font-size: ${({ theme, size }) => theme.fontSize[size ?? 'normal']};
 `;
 
 export default TextBox;
