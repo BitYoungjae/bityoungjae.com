@@ -14,23 +14,24 @@ interface ContainerProps extends Pick<ContainerProps, 'type'> {}
 
 const StyledContainer = styled.header<ContainerProps>`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+
+  padding: 0 20vw;
 
   position: fixed;
 
   width: 100vw;
 
-  background-color: white;
-  box-shadow: 0 0.1rem 0.25rem rgba(203, 203, 203, 0.5);
-
+  background-color: transparent;
   transition: background-color 0.3s;
 
   ${({ type }) => type === 'filled' && filledStyle};
 `;
 
 const filledStyle = css`
-  background-color: ${(props) => props.theme.primary};
+  background-color: white;
+  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.3);
 `;
 
 export default Container;
