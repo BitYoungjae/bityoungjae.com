@@ -31,7 +31,7 @@ const NavButton = styled.button`
   padding: 1rem 0.5rem;
 
   font-size: ${(props) => props.theme.fontSize.normal};
-  color: ${(props) => props.theme.colors.lightGray};
+  color: inherit;
   cursor: pointer;
 
   position: relative;

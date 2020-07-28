@@ -22,6 +22,8 @@ const StyledContainer = styled.header<ContainerProps>`
   width: 100vw;
   padding: 0 20vw;
 
+  color: ${({ theme }) => theme.colors.black};
+
   background-color: transparent;
   transition: background-color 0.3s;
 
@@ -29,6 +31,7 @@ const StyledContainer = styled.header<ContainerProps>`
 `;
 
 const filledStyle = css`
+  color: ${({ theme }) => theme.colors.lightGray};
   background-color: ${({ theme }) => theme.colors.filledHeader};
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.3);
 `;

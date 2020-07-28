@@ -3,6 +3,7 @@ import { SiteTheme } from 'components/typings/Theme';
 export const theme: SiteTheme = {
   logoSize: '2rem',
   colors: {
+    black: '#000000b8',
     green: '#27ae60',
     blue: '#0984E3',
     lightGray: '#7f8c8d',

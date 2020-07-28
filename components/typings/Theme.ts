@@ -4,7 +4,12 @@ import baseStyled, {
   ThemedCssFunction,
 } from 'styled-components';
 
-export type ColorList = 'green' | 'blue' | 'lightGray' | 'filledHeader';
+export type ColorList =
+  | 'black'
+  | 'green'
+  | 'blue'
+  | 'lightGray'
+  | 'filledHeader';
 export type SizeList = 'x-small' | 'small' | 'normal' | 'big' | 'x-big';
 
 export interface SiteTheme {
