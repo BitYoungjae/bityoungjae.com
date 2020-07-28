@@ -13,7 +13,7 @@ const Logo: React.FC = () => {
 };
 
 const LogoImage = styled.img`
-  height: ${(props) => props.theme.logoSize};
+  height: 1.8rem;
 `;
 
 export default Logo;

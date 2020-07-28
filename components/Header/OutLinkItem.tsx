@@ -7,10 +7,15 @@ interface OutLinkItemProps extends GetProps<typeof FontAwsome> {
   href: string;
 }
 
-const OutLinkItem: React.FC<OutLinkItemProps> = ({ iconName, size, href }) => {
+const OutLinkItem: React.FC<OutLinkItemProps> = ({
+  iconName,
+  size,
+  color,
+  href,
+}) => {
   return (
     <StyledOutLinkItem href={href}>
-      <FontAwsome iconName={iconName} size={size} />
+      <FontAwsome iconName={iconName} size={size} color={color} />
     </StyledOutLinkItem>
   );
 };

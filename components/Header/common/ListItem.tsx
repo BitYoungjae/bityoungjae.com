@@ -3,20 +3,26 @@ import FontAwsome from 'components/common/FontAwsome';
 import { styled } from 'components/typings/Theme';
 import ListItemBox from './ListItemBox';
 import TextBox from 'components/common/TextBox';
+import { ValueBox } from './ValueBox';
 
 interface ListItemProps extends GetProps<typeof FontAwsome> {
   name: string;
   content: string;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ iconName, name, content }) => {
+const ListItem: React.FC<ListItemProps> = ({
+  iconName,
+  name,
+  content,
+  color,
+}) => {
   return (
     <ListItemBox>
       <span>
-        <FontAwsome iconName={iconName} size='small' />
+        <FontAwsome iconName={iconName} size='small' color={color} />
         <NameBox size='small'>{name}</NameBox>
       </span>
-      <TextBox size='small'>{content}</TextBox>
+      <ValueBox size='small'>{content}</ValueBox>
     </ListItemBox>
   );
 };

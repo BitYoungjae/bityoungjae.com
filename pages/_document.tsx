@@ -11,6 +11,7 @@ export default class MyDocument extends Document {
             name='viewport'
             content='width=device-width, initial-scale=1, shrink-to-fit=no'
           />
+          <link rel='shortcut icon' href='/favicon.png' type='image/png' />
           <link
             href='https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;700&family=Montserrat:wght@900&display=swap'
             rel='stylesheet'

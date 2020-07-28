@@ -1,5 +1,6 @@
 import ListItemBox from './ListItemBox';
 import TextBox from 'components/common/TextBox';
+import { ValueBox } from './ValueBox';
 
 interface PlainListItem {
   name: string;
@@ -10,7 +11,7 @@ const PlainListItem: React.FC<PlainListItem> = ({ name, content }) => {
   return (
     <ListItemBox>
       <TextBox size='small'>{name}</TextBox>
-      <TextBox size='small'>{content}</TextBox>
+      <ValueBox size='small'>{content}</ValueBox>
     </ListItemBox>
   );
 };
