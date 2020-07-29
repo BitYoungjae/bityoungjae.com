@@ -19,12 +19,17 @@ const BuildInfoNav: React.FC<BuildInfoNavProps> = ({
   tagCount,
   categoryCount,
 }) => {
-  const { isHover, hoverMouseEvent } = useMouseHover();
+  const {
+    isHover,
+    hoverMouseEvent,
+    leaveMouseEvent,
+    containerRef,
+  } = useMouseHover();
 
   return (
-    <NavItem onMouseEnter={hoverMouseEvent} onMouseLeave={hoverMouseEvent}>
+    <NavItem onMouseEnter={hoverMouseEvent} onMouseLeave={leaveMouseEvent}>
       빌드정보
-      <SubNavContainer isHide={!isHover}>
+      <SubNavContainer isHide={!isHover} ref={containerRef}>
         <SubNavList>
           <SubNavIconItem
             iconName='far fa-clock'

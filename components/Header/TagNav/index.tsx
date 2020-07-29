@@ -12,13 +12,18 @@ interface TagNavProps {
 }
 
 const TagNav: React.FC<TagNavProps> = ({ tagList }) => {
-  const { isHover, hoverMouseEvent } = useMouseHover();
+  const {
+    isHover,
+    hoverMouseEvent,
+    leaveMouseEvent,
+    containerRef,
+  } = useMouseHover();
   const sortedTagList = tagList.sort(postInfoSort);
 
   return (
-    <NavItem onMouseEnter={hoverMouseEvent} onMouseLeave={hoverMouseEvent}>
+    <NavItem onMouseEnter={hoverMouseEvent} onMouseLeave={leaveMouseEvent}>
       태그
-      <SubNavContainer isHide={!isHover}>
+      <SubNavContainer isHide={!isHover} ref={containerRef}>
         <SubNavList>
           {sortedTagList.map(({ name, postCount, slug }) => {
             return (

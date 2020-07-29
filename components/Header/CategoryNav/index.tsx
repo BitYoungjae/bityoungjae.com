@@ -2,7 +2,7 @@ import NavItem from '../common/NavItem';
 import SubNavContainer from '../common/SubNavContainer';
 import SubNavList from '../common/SubNavList';
 import Category from './Category';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { GlobalProp, PropInfoNode } from 'poststore';
 import { useMouseHover } from 'components/hooks/useMouseHover';
 import { useMultipleList } from 'components/hooks/useMuiltipleList';
@@ -14,7 +14,12 @@ interface TagNavItemProps {
 
 const CategoryNavItem: React.FC<TagNavItemProps> = ({ rootCategoryNode }) => {
   const rootCategoryList = rootCategoryNode.childList ?? [];
-  const { isHover, hoverMouseEvent } = useMouseHover();
+  const {
+    isHover,
+    hoverMouseEvent,
+    leaveMouseEvent,
+    containerRef,
+  } = useMouseHover();
   const { displayList, onReconcilList, onInitList } = useMultipleList(
     [rootCategoryList],
     postInfoSort,
@@ -25,9 +30,9 @@ const CategoryNavItem: React.FC<TagNavItemProps> = ({ rootCategoryNode }) => {
   }, [isHover]);
 
   return (
-    <NavItem onMouseEnter={hoverMouseEvent} onMouseLeave={hoverMouseEvent}>
+    <NavItem onMouseEnter={hoverMouseEvent} onMouseLeave={leaveMouseEvent}>
       카테고리
-      <SubNavContainer isHide={!isHover}>
+      <SubNavContainer isHide={!isHover} ref={containerRef}>
         <SubNavList direction='row'>
           {displayList.map((list, index) => (
             <Category
