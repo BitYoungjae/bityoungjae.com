@@ -1,3 +1,4 @@
+import React from 'react';
 import ListBox from './ListBox';
 import FontAwsome from 'components/common/FontAwsome';
 import TextBox from 'components/common/TextBox';
@@ -32,4 +33,4 @@ const NameBox = styled(TextBox)`
   margin-left: 0.3rem;
 `;
 
-export default SubNavIconItem;
+export default React.memo(SubNavIconItem);

@@ -1,3 +1,4 @@
+import React from 'react';
 import ListBox from './ListBox';
 import TextBox from 'components/common/TextBox';
 import ValueBox from './ValueBox';
@@ -16,4 +17,4 @@ const SubNavItem: React.FC<SubNavItemProps> = ({ name, content }) => {
   );
 };
 
-export default SubNavItem;
+export default React.memo(SubNavItem);
