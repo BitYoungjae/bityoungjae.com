@@ -31,6 +31,7 @@ const CategoryNavItem: React.FC<TagNavItemProps> = ({ rootCategoryNode }) => {
         <SubNavList direction='row'>
           {displayList.map((list, index) => (
             <Category
+              key={index}
               list={list}
               index={index}
               onReconcilList={onReconcilList}
