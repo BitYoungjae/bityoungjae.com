@@ -1,49 +1,25 @@
 import React from 'react';
 import FontAwsome from '../../common/FontAwsome';
-import { GetProps } from 'components/typings/GetProps';
-import { styled } from 'components/typings/Theme';
+import NavSection from './NavSection';
+import { GetDOMAttributeFromStyledComponent } from 'components/typings/SCHelper';
 
-interface NavItemProps extends GetProps<typeof NavButton> {
+interface NavItemProps
+  extends GetDOMAttributeFromStyledComponent<typeof NavSection> {
   hasDropdown?: boolean;
 }
 
 const NavItem: React.FC<NavItemProps> = ({
   children,
   hasDropdown = true,
-  ...buttonProps
+  onMouseEnter,
+  onMouseLeave,
 }) => {
   return (
-    <NavButton {...buttonProps}>
+    <NavSection onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {children}
       {hasDropdown && <FontAwsome iconName='fas fa-angle-down' />}
-    </NavButton>
+    </NavSection>
   );
 };
-
-const NavButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border: none;
-  background: none;
-
-  padding: 1rem 0.5rem;
-
-  font-size: ${(props) => props.theme.fontSize.normal};
-  color: inherit;
-  cursor: pointer;
-
-  position: relative;
-
-  & > i {
-    margin-left: 0.3rem;
-    color: ${(props) => props.theme.colors.blue};
-  }
-
-  &:hover {
-    color: ${(props) => props.theme.colors.blue};
-  }
-`;
 
 export default NavItem;

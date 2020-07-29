@@ -1,18 +1,10 @@
-import React from 'react';
 import { styled, css } from 'components/typings/Theme';
 
-interface ContainerProps {
+interface HeaderContainerProps {
   type?: 'filled';
-  children: React.ReactNode;
 }
 
-const Container: React.FC<ContainerProps> = ({ type, children }) => {
-  return <StyledContainer type={type}>{children}</StyledContainer>;
-};
-
-interface ContainerProps extends Pick<ContainerProps, 'type'> {}
-
-const StyledContainer = styled.header<ContainerProps>`
+const HeaderContainer = styled.header<HeaderContainerProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,4 +28,4 @@ const filledStyle = css`
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.3);
 `;
 
-export default Container;
+export default HeaderContainer;

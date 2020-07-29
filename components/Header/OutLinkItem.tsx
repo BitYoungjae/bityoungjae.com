@@ -1,6 +1,6 @@
 import React from 'react';
-import { GetProps } from 'components/typings/GetProps';
 import FontAwsome from '../common/FontAwsome';
+import { GetProps } from 'components/typings/GetProps';
 import { styled } from 'components/typings/Theme';
 
 interface OutLinkItemProps extends GetProps<typeof FontAwsome> {

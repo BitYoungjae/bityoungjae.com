@@ -1,18 +1,19 @@
+import NavItem from '../common/NavItem';
+import SubNavContainer from '../common/SubNavContainer';
+import SubNavList from '../common/SubNavList';
+import Category from './Category';
+import { useEffect } from 'react';
 import { GlobalProp, PropInfoNode } from 'poststore';
 import { useMouseHover } from 'components/hooks/useMouseHover';
-import NavItem from '../common/NavItem';
-import PopUpContainer from '../common/PopUpContainer';
-import { useState, useCallback, useEffect } from 'react';
-import CategoryList from './CategoryList';
-import { styled, css } from 'components/typings/Theme';
 import { useMultipleList } from 'components/hooks/useMuiltipleList';
+
 interface TagNavItemProps {
   rootCategoryNode: GlobalProp['categoryTree'];
 }
 
 const CategoryNavItem: React.FC<TagNavItemProps> = ({ rootCategoryNode }) => {
-  const { isHover, hoverMouseEvent } = useMouseHover();
   const rootCategoryList = rootCategoryNode.childList ?? [];
+  const { isHover, hoverMouseEvent } = useMouseHover();
   const { displayList, onReconcilList, onInitList } = useMultipleList([
     rootCategoryList,
   ]);
@@ -22,31 +23,21 @@ const CategoryNavItem: React.FC<TagNavItemProps> = ({ rootCategoryNode }) => {
   }, [isHover]);
 
   return (
-    <>
-      <NavItem onMouseEnter={hoverMouseEvent} onMouseLeave={hoverMouseEvent}>
-        카테고리
-        <CategoryContainer isShow={isHover}>
+    <NavItem onMouseEnter={hoverMouseEvent} onMouseLeave={hoverMouseEvent}>
+      카테고리
+      <SubNavContainer isHide={!isHover}>
+        <SubNavList direction='row'>
           {displayList.map((list, index) => (
-            <CategoryList
+            <Category
               list={list}
               index={index}
               onReconcilList={onReconcilList}
             />
           ))}
-        </CategoryContainer>
-      </NavItem>
-    </>
+        </SubNavList>
+      </SubNavContainer>
+    </NavItem>
   );
 };
-
-const CategoryContainer = styled(PopUpContainer)`
-  padding: 0;
-  ${({ isShow }) =>
-    isShow &&
-    css`
-      display: flex;
-      justify-content: space-between;
-    `}
-`;
 
 export default CategoryNavItem;

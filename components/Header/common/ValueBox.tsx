@@ -1,6 +1,10 @@
 import TextBox from 'components/common/TextBox';
 import { styled } from 'components/typings/Theme';
 
-export const ValueBox = styled(TextBox)`
+const ValueBox = styled(TextBox)`
+  display: inline-block;
+  margin-left: 1rem;
   color: ${({ theme }) => theme.colors.blue};
 `;
+
+export default ValueBox;

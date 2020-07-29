@@ -1,6 +1,6 @@
 import { styled } from 'components/typings/Theme';
 
-const ListItemBox = styled.li`
+const ListBox = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,4 +16,4 @@ const ListItemBox = styled.li`
   }
 `;
 
-export default ListItemBox;
+export default ListBox;

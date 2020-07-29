@@ -1,9 +1,9 @@
 import React from 'react';
-import { GetProps } from 'components/typings/GetProps';
+import Link from 'next/link';
 import NavItem from './NavItem';
+import { GetProps } from 'components/typings/GetProps';
 import { styled } from 'components/typings/Theme';
 import { PlainAnchor } from 'components/styles/alias';
-import Link from 'next/link';
 
 interface NavItemLinkProps extends GetProps<typeof NavItem> {
   href: string;
