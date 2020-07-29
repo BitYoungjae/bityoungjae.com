@@ -15,7 +15,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-responsive": "^8.1.0",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
     "@types/lodash.isequal": "^4.5.5",
