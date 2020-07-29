@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { GlobalProp, PropInfoNode } from 'poststore';
 import { useMouseHover } from 'components/hooks/useMouseHover';
 import { useMultipleList } from 'components/hooks/useMuiltipleList';
+import { postInfoSort } from '../common/postInfoSort';
 
 interface TagNavItemProps {
   rootCategoryNode: GlobalProp['categoryTree'];
@@ -14,9 +15,10 @@ interface TagNavItemProps {
 const CategoryNavItem: React.FC<TagNavItemProps> = ({ rootCategoryNode }) => {
   const rootCategoryList = rootCategoryNode.childList ?? [];
   const { isHover, hoverMouseEvent } = useMouseHover();
-  const { displayList, onReconcilList, onInitList } = useMultipleList([
-    rootCategoryList,
-  ]);
+  const { displayList, onReconcilList, onInitList } = useMultipleList(
+    [rootCategoryList],
+    postInfoSort,
+  );
 
   useEffect(() => {
     onInitList();

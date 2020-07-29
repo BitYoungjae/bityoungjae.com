@@ -5,6 +5,7 @@ import SubNavList from '../common/SubNavList';
 import SubNavItem from '../common/SubNavItem';
 import { GlobalProp } from 'poststore';
 import { useMouseHover } from 'components/hooks/useMouseHover';
+import { postInfoSort } from '../common/postInfoSort';
 
 interface TagNavProps {
   tagList: GlobalProp['tagList'];
@@ -12,9 +13,7 @@ interface TagNavProps {
 
 const TagNav: React.FC<TagNavProps> = ({ tagList }) => {
   const { isHover, hoverMouseEvent } = useMouseHover();
-  const sortedTagList = tagList.sort(
-    (aTag, bTag) => bTag.postCount - aTag.postCount,
-  );
+  const sortedTagList = tagList.sort(postInfoSort);
 
   return (
     <NavItem onMouseEnter={hoverMouseEvent} onMouseLeave={hoverMouseEvent}>
