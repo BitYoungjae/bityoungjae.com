@@ -4,7 +4,7 @@ import { styled } from 'components/typings/Theme';
 
 const Logo: React.FC = () => {
   return (
-    <Link href='/index' as='/'>
+    <Link href='/'>
       <a>
         <LogoImage src='/logo.svg' />
       </a>
