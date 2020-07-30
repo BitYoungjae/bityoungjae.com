@@ -31,4 +31,4 @@ const StyledNavItemLink = styled(PlainAnchor)`
   align-items: center;
 `;
 
-export default NavItemLink;
+export default React.memo(NavItemLink);

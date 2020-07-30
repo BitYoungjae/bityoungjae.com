@@ -4,34 +4,54 @@ import baseStyled, {
   ThemedCssFunction,
 } from 'styled-components';
 
-export type ColorList =
+export type BaseColorList =
+  | 'white'
+  | 'black'
+  | 'green'
+  | 'blue'
+  | 'sharpBlue'
+  | 'lightGray';
+export type SpecificColorList =
   | 'primary'
   | 'listBox'
   | 'textOnListBox'
   | 'background'
   | 'iconOnBackground'
   | 'textOnBackground'
-  | 'white'
-  | 'black'
-  | 'green'
-  | 'blue'
-  | 'lightGray'
-  | 'filledHeader';
+  | 'iconOnFilledHeader'
+  | 'textOnFilledHeader'
+  | 'filledHeaderBackground'
+  | 'boxShadowOnBackground';
+export type ColorList = BaseColorList | SpecificColorList;
+
 export type SizeList = 'x-small' | 'small' | 'normal' | 'big' | 'x-big';
 
-export interface SiteTheme {
+export interface SizeTheme<
+  F extends SizeList = SizeList,
+  I extends SizeList = SizeList
+> {
   logoSize: string;
-  colors: {
-    [key in ColorList]?: string;
-  };
   fontSize: {
-    [key in SizeList]?: string;
+    [key in F]?: string;
   };
   iconSize: {
-    [key in SizeList]?: string;
+    [key in I]?: string;
   };
 }
 
+export interface ColorTheme<T extends ColorList = ColorList> {
+  colors: {
+    [key in T]?: string;
+  };
+}
+
+export interface SiteTheme<
+  C extends ColorList = ColorList,
+  F extends SizeList = SizeList,
+  I extends SizeList = SizeList
+> extends SizeTheme<F, I>, ColorTheme<C> {}
+
+// Theme Aliases
 export type FontSize = keyof SiteTheme['fontSize'];
 export type IconSize = keyof SiteTheme['iconSize'];
 

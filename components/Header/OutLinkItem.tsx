@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import FontAwsome from '../common/FontAwsome';
 import { GetProps } from 'components/typings/GetProps';
 import { styled } from 'components/typings/Theme';
+import { FilledContext } from '.';
 
 interface OutLinkItemProps
   extends Pick<GetProps<typeof FontAwsome>, 'iconName'> {
@@ -9,9 +10,15 @@ interface OutLinkItemProps
 }
 
 const OutLinkItem: React.FC<OutLinkItemProps> = ({ iconName, href }) => {
+  const isFilled = useContext(FilledContext);
+
   return (
     <StyledOutLinkItem href={href}>
-      <FontAwsome iconName={iconName} size='big' color='iconOnBackground' />
+      <FontAwsome
+        iconName={iconName}
+        size='big'
+        color={isFilled ? 'iconOnFilledHeader' : 'iconOnBackground'}
+      />
     </StyledOutLinkItem>
   );
 };
@@ -25,4 +32,4 @@ const StyledOutLinkItem = styled.a`
   }
 `;
 
-export default OutLinkItem;
+export default React.memo(OutLinkItem);

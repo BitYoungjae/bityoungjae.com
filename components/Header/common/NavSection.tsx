@@ -11,7 +11,6 @@ const NavSection = styled.section`
   padding: 1rem 0.5rem;
 
   font-size: ${({ theme }) => theme.fontSize.normal};
-  color: ${({ theme }) => theme.colors.textOnBackground ?? 'black'};
   cursor: pointer;
 
   position: relative;

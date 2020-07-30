@@ -15,6 +15,7 @@ const SubNavList = styled(PlainListAsSubNavList)`
   display: inline-flex;
   flex-direction: column;
 
+  margin-top: -0.5rem;
   padding: 1rem;
 
   ${({ direction = 'column' }) => direction === 'row' && alignRow};
@@ -23,7 +24,8 @@ const SubNavList = styled(PlainListAsSubNavList)`
   color: ${({ theme }) => theme.colors.textOnListBox ?? 'black'};
   border-radius: 0.3rem;
 
-  box-shadow: 0 0.3rem 0.7rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.3rem 0.7rem
+    ${({ theme }) => theme.colors.boxShadowOnBackground};
 `;
 
 const alignRow = css`
