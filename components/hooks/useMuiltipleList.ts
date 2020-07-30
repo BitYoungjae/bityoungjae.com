@@ -15,29 +15,44 @@ export const useMultipleList = <T>(
     return newList;
   }, [initList]);
 
+  const [selectStatus, setSelectStatus] = useState<number[]>([]);
   const [displayList, setDisplayList] = useState(sortedInitList);
 
   const onReconcilList = useCallback(
-    (index: number, list: T[]) => {
-      const newList = displayList.slice(0, index + 1);
-      if (!list) {
-        setDisplayList(newList);
-        return;
-      }
+    (index: number, subIndex: number, list: T[]) => {
+      setDisplayList((prevList) => {
+        if (!list) {
+          return prevList;
+        }
 
-      if (sortCompareFn) list.sort(sortCompareFn);
+        const newList = prevList.slice(0, index + 1);
+        newList.push(list);
 
-      newList.push(list);
-      setDisplayList(newList);
+        if (sortCompareFn) list.sort(sortCompareFn);
+
+        return newList;
+      });
+
+      setSelectStatus((prevStat) => {
+        const newStat = prevStat.slice(0, index + 1);
+        newStat[index] = subIndex;
+
+        return newStat;
+      });
     },
-    [displayList, setDisplayList],
+    [setDisplayList, setSelectStatus],
   );
 
   const onInitList = useCallback(() => {
     setDisplayList(sortedInitList);
-  }, [sortedInitList, setDisplayList]);
+    setSelectStatus([]);
+  }, [sortedInitList, setDisplayList, setSelectStatus]);
 
-  return { displayList, onReconcilList, onInitList };
+  return { displayList, onReconcilList, onInitList, selectStatus };
 };
 
-export type IOnReconcilList<T> = (index: number, list: T[]) => void;
+export type IOnReconcilList<T> = (
+  index: number,
+  subIndex: number,
+  list: T[],
+) => void;

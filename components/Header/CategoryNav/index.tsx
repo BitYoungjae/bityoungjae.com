@@ -20,10 +20,12 @@ const CategoryNavItem: React.FC<TagNavItemProps> = ({ rootCategoryNode }) => {
     leaveMouseEvent,
     containerRef,
   } = useMouseHover();
-  const { displayList, onReconcilList, onInitList } = useMultipleList(
-    [rootCategoryList],
-    postInfoSort,
-  );
+  const {
+    displayList,
+    selectStatus,
+    onReconcilList,
+    onInitList,
+  } = useMultipleList([rootCategoryList], postInfoSort);
 
   useEffect(() => {
     onInitList();
@@ -38,6 +40,7 @@ const CategoryNavItem: React.FC<TagNavItemProps> = ({ rootCategoryNode }) => {
             <Category
               key={index}
               list={list}
+              selectedIndex={selectStatus[index]}
               index={index}
               onReconcilList={onReconcilList}
             />
