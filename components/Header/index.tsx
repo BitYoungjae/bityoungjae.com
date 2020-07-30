@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({
     <HeaderContainer type={scrollPercent > 1 ? 'filled' : undefined}>
       <Link href='/'>
         <a>
-          <Logo />
+          <Logo logoColor='iconOnBackground' />
         </a>
       </Link>
       <NavItemContainer>
@@ -46,14 +46,10 @@ const Header: React.FC<HeaderProps> = ({
       <OutLinkContainer>
         <OutLinkItem
           iconName='fab fa-github'
-          color='blue'
-          size='big'
           href='https://github.com/BitYoungjae'
         />
         <OutLinkItem
           iconName='fas fa-envelope'
-          color='blue'
-          size='big'
           href='mailto:bityoungjae@gmail.com'
         />
       </OutLinkContainer>

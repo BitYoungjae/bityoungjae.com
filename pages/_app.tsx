@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../components/styles/themes/default';
+import defaultTheme from '../components/styles/themes/default';
 import { GlobalStyle } from 'components/styles/GlobalStyle';
 
 function PostStoreApp({ Component, pageProps }) {
@@ -14,7 +14,7 @@ function PostStoreApp({ Component, pageProps }) {
         />
       </Head>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={defaultTheme}>
         <Component {...pageProps} />
       </ThemeProvider>
     </>

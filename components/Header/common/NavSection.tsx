@@ -10,19 +10,18 @@ const NavSection = styled.section`
 
   padding: 1rem 0.5rem;
 
-  font-size: ${(props) => props.theme.fontSize.normal};
-  color: inherit;
+  font-size: ${({ theme }) => theme.fontSize.normal};
+  color: ${({ theme }) => theme.colors.textOnBackground ?? 'black'};
   cursor: pointer;
 
   position: relative;
 
   & > i {
     margin-left: 0.3rem;
-    color: ${(props) => props.theme.colors.blue};
   }
 
   &:hover {
-    color: ${(props) => props.theme.colors.blue};
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 

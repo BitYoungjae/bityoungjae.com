@@ -14,8 +14,6 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
   width: 100vw;
   padding: 0 20vw;
 
-  color: ${({ theme }) => theme.colors.black};
-
   background-color: transparent;
   transition: background-color 0.3s;
 

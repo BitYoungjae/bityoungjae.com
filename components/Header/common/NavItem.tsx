@@ -17,7 +17,9 @@ const NavItem: React.FC<NavItemProps> = ({
   return (
     <NavSection onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {children}
-      {hasDropdown && <FontAwsome iconName='fas fa-angle-down' />}
+      {hasDropdown && (
+        <FontAwsome iconName='fas fa-angle-down' color='primary' />
+      )}
     </NavSection>
   );
 };

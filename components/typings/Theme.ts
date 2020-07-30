@@ -5,6 +5,12 @@ import baseStyled, {
 } from 'styled-components';
 
 export type ColorList =
+  | 'primary'
+  | 'listBox'
+  | 'textOnListBox'
+  | 'background'
+  | 'iconOnBackground'
+  | 'textOnBackground'
   | 'white'
   | 'black'
   | 'green'

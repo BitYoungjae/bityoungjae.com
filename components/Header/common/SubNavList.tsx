@@ -19,7 +19,8 @@ const SubNavList = styled(PlainListAsSubNavList)`
 
   ${({ direction = 'column' }) => direction === 'row' && alignRow};
 
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.listBox ?? 'white'};
+  color: ${({ theme }) => theme.colors.textOnListBox ?? 'black'};
   border-radius: 0.3rem;
 
   box-shadow: 0 0.3rem 0.7rem rgba(0, 0, 0, 0.3);

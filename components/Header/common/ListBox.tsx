@@ -5,10 +5,8 @@ const ListBox = styled.li`
   justify-content: space-between;
   align-items: center;
 
-  color: ${({ theme }) => theme.colors.lightGray};
-
   &:hover {
-    color: ${({ theme }) => theme.colors.blue};
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   & + & {
