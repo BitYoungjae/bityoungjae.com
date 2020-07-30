@@ -3,7 +3,7 @@ import { PlainList } from 'components/styles/alias';
 import { UpdateStyledProps } from 'components/typings/SCHelper';
 
 interface SubNavListProps {
-  direction?: 'row' | 'column';
+  listDirection?: 'row' | 'column';
 }
 
 const PlainListAsSubNavList = PlainList as UpdateStyledProps<
@@ -18,7 +18,7 @@ const SubNavList = styled(PlainListAsSubNavList)`
   margin-top: -0.5rem;
   padding: 1rem;
 
-  ${({ direction = 'column' }) => direction === 'row' && alignRow};
+  ${({ listDirection = 'column' }) => listDirection === 'row' && alignRow};
 
   background-color: ${({ theme }) => theme.colors.listBox ?? 'white'};
   color: ${({ theme }) => theme.colors.textOnListBox ?? 'black'};
