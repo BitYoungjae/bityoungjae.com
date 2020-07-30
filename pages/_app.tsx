@@ -1,10 +1,23 @@
-import React from 'react';
+import React, {
+  createContext,
+  useState,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
-import defaultTheme from '../components/styles/themes/default';
 import { GlobalStyle } from 'components/styles/GlobalStyle';
+import { ThemeMode, themeList } from 'components/styles/themes';
+
+export const SetThemeContext = createContext<
+  Dispatch<SetStateAction<ThemeMode>>
+>(null);
+
+export const ThemeKeyContext = createContext<ThemeMode>('light');
 
 function PostStoreApp({ Component, pageProps }) {
+  const [themeKey, setThemeKey] = useState<ThemeMode>('light');
+
   return (
     <>
       <Head>
@@ -14,9 +27,13 @@ function PostStoreApp({ Component, pageProps }) {
         />
       </Head>
       <GlobalStyle />
-      <ThemeProvider theme={defaultTheme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <SetThemeContext.Provider value={setThemeKey}>
+        <ThemeKeyContext.Provider value={themeKey}>
+          <ThemeProvider theme={themeList[themeKey]}>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </ThemeKeyContext.Provider>
+      </SetThemeContext.Provider>
     </>
   );
 }

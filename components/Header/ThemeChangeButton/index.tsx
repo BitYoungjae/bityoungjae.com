@@ -1,19 +1,21 @@
-import React, { useState, useCallback } from 'react';
-import { styled, css } from 'components/typings/Theme';
-import FontAwsome from 'components/common/FontAwsome';
-
-type ThemeMode = 'dark' | 'light';
+import React, { useCallback, useContext } from 'react';
+import { styled } from 'components/typings/Theme';
+import { ThemeMode } from 'components/styles/themes';
+import { SetThemeContext, ThemeKeyContext } from 'pages/_app';
+import ThemeIndicator from './ThemeIndicator';
 
 const ThemeChangeButton: React.FC = () => {
-  const [themeMode, setThemeMode] = useState<ThemeMode>('light');
-  const buttonHandler = useCallback(
-    () => setThemeMode((theme) => (theme === 'light' ? 'dark' : 'light')),
-    [setThemeMode],
-  );
+  const themeKey = useContext(ThemeKeyContext);
+  const setThemeContext = useContext(SetThemeContext);
+
+  const clickHandler = useCallback(() => {
+    const newThemeKey = themeKey === 'light' ? 'dark' : 'light';
+    setThemeContext(newThemeKey);
+  }, [themeKey]);
 
   return (
-    <ThemeButton onClick={buttonHandler} themeMode={themeMode}>
-      <ModeIndicator themeMode={themeMode} />
+    <ThemeButton onClick={clickHandler} themeMode={themeKey}>
+      <ThemeIndicator />
     </ThemeButton>
   );
 };
@@ -38,43 +40,5 @@ const ThemeButton = styled.button<ThemeButtonProps>`
 
   transition: background-color 0.5s;
 `;
-
-interface ModeIndicatorProps {
-  themeMode: ThemeMode;
-}
-
-const ModeIndicator: React.FC<ModeIndicatorProps> = ({ themeMode }) => {
-  const indicatorPosition = themeMode === 'light' ? 'right' : 'left';
-
-  return (
-    <Indicator position={indicatorPosition}>
-      <ModeIcon themeMode={themeMode} />
-    </Indicator>
-  );
-};
-
-interface IndicatorProps {
-  position: 'left' | 'right';
-}
-
-const Indicator = styled.div<IndicatorProps>`
-  display: inline-block;
-  transform: translateX(0);
-
-  ${({ position }) => positionStyle(position)};
-
-  transition: transform 0.5s;
-`;
-
-const positionStyle = (position: IndicatorProps['position']) => css`
-  transform: ${position === 'left' ? 'translateX(-50%)' : 'translateX(50%)'};
-`;
-
-const ModeIcon: React.FC<ModeIndicatorProps> = ({ themeMode }) => {
-  const iconName = themeMode === 'light' ? 'fas fa-sun' : 'fas fa-moon';
-  const iconColor = themeMode === 'light' ? 'white' : 'yellow';
-
-  return <FontAwsome iconName={iconName} size='big' color={iconColor} />;
-};
 
 export default ThemeChangeButton;
