@@ -9,6 +9,8 @@ import { GlobalProp } from 'poststore';
 import { styled } from 'components/typings/Theme';
 import HeaderLogo from './HeaderLogo';
 import { useScrollOverElement } from 'components/hooks/useScrollOverElement';
+import FontAwsome from 'components/common/FontAwsome';
+import ThemeChangeButton from './ThemeChangeButton';
 
 export const FilledContext = React.createContext(false);
 
@@ -42,6 +44,7 @@ const Header: React.FC<HeaderProps> = ({
           />
         </NavItemContainer>
         <OutLinkContainer>
+          <ThemeChangeButton />
           <OutLinkItem
             iconName='fab fa-github'
             href='https://github.com/BitYoungjae'
@@ -59,6 +62,7 @@ const Header: React.FC<HeaderProps> = ({
 const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const NavItemContainer = styled(NavContainer)`

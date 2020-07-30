@@ -8,6 +8,7 @@ export type BaseColorList =
   | 'white'
   | 'black'
   | 'green'
+  | 'yellow'
   | 'blue'
   | 'sharpBlue'
   | 'lightGray';

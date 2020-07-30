@@ -11,6 +11,7 @@ const baseColors: ColorTheme<BaseColorList>['colors'] = {
   black: '#000000b8',
   green: '#27ae60',
   blue: '#0984E3',
+  yellow: '#fdcb6e',
   sharpBlue: 'hsl(211 91% 46% / 1)',
   lightGray: '#7f8c8d',
 };
