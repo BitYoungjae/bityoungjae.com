@@ -1,5 +1,6 @@
 import React from 'react';
-import Logo from './Logo';
+import Logo from 'components/common/Logo';
+import Link from 'next/link';
 import HeaderContainer from './HeaderContainer';
 import CategoryNav from './CategoryNav';
 import TagNav from './TagNav';
@@ -24,7 +25,11 @@ const Header: React.FC<HeaderProps> = ({
 
   return (
     <HeaderContainer type={scrollPercent > 1 ? 'filled' : undefined}>
-      <Logo />
+      <Link href='/'>
+        <a>
+          <Logo />
+        </a>
+      </Link>
       <NavItemContainer>
         <NavItemLink href='/about' hasDropdown={false}>
           나에 대하여
