@@ -5,6 +5,7 @@ import baseStyled, {
 } from 'styled-components';
 
 export type ColorList =
+  | 'white'
   | 'black'
   | 'green'
   | 'blue'
