@@ -24,6 +24,7 @@ const NavItem: React.FC<NavItemProps> = ({
         <FontAwsome
           iconName='fas fa-angle-down'
           color={isFilled ? 'iconOnFilledHeader' : 'iconOnBackground'}
+          size='small'
         />
       )}
     </NavSection>

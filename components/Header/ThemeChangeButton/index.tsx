@@ -35,8 +35,8 @@ const ThemeButton = styled.button<ThemeButtonProps>`
   border: 0;
   border-radius: 3rem;
 
-  background-color: ${({ themeMode }) =>
-    themeMode === 'light' ? '#0984e3' : '#2d3436'};
+  background-color: ${({ themeMode, theme }) =>
+    themeMode === 'light' ? '#0984e3' : theme.colors.lightGray};
 
   transition: background-color 0.5s;
 `;

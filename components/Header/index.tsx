@@ -9,20 +9,23 @@ import { GlobalProp } from 'poststore';
 import { styled } from 'components/typings/Theme';
 import HeaderLogo from './HeaderLogo';
 import { useScrollOverElement } from 'components/hooks/useScrollOverElement';
-import FontAwsome from 'components/common/FontAwsome';
 import ThemeChangeButton from './ThemeChangeButton';
 
 export const FilledContext = React.createContext(false);
 
-interface HeaderProps extends GlobalProp {}
+interface HeaderProps {
+  globalProp: GlobalProp;
+}
 
 const Header: React.FC<HeaderProps> = ({
-  categoryTree,
-  tagList,
-  buildTime,
-  categoryCount,
-  tagCount,
-  postCount,
+  globalProp: {
+    categoryTree,
+    tagList,
+    buildTime,
+    categoryCount,
+    tagCount,
+    postCount,
+  },
 }) => {
   const { isOver, targetElementRef } = useScrollOverElement();
 

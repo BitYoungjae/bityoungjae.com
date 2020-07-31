@@ -9,10 +9,12 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
   justify-content: space-between;
   align-items: center;
 
+  width: 100vw;
+  height: 3.7rem;
+  padding: 0 20vw;
   position: fixed;
 
-  width: 100vw;
-  padding: 0 20vw;
+  z-index: 9999;
 
   color: ${({ theme }) => theme.colors.textOnBackground};
   background-color: transparent;

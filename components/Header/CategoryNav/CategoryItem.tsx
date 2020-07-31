@@ -55,7 +55,7 @@ const NameBox = styled(SelectableTextBox)`
 `;
 
 const selectedStyle = css`
-  color: ${({ theme }) => theme.colors.blue};
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 export default React.memo(CategoryItem);
