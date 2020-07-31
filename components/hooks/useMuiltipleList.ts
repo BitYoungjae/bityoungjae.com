@@ -21,11 +21,12 @@ export const useMultipleList = <T>(
   const onReconcilList = useCallback(
     (index: number, subIndex: number, list: T[]) => {
       setDisplayList((prevList) => {
+        const newList = prevList.slice(0, index + 1);
+
         if (!list) {
-          return prevList;
+          return newList;
         }
 
-        const newList = prevList.slice(0, index + 1);
         newList.push(list);
 
         if (sortCompareFn) list.sort(sortCompareFn);
