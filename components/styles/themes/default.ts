@@ -7,6 +7,7 @@ import {
 } from 'components/typings/Theme';
 
 const baseColors: ColorTheme<BaseColorList>['colors'] = {
+  primary: '#0984E3',
   white: '#fff',
   black: '#000000b8',
   green: '#27ae60',
@@ -17,14 +18,13 @@ const baseColors: ColorTheme<BaseColorList>['colors'] = {
 };
 
 const specificColors: ColorTheme<SpecificColorList>['colors'] = {
-  primary: baseColors.blue,
   listBox: baseColors.white,
   textOnListBox: baseColors.lightGray,
   background: baseColors.white,
   textOnBackground: baseColors.black,
   iconOnBackground: baseColors.sharpBlue,
   textOnFilledHeader: baseColors.lightGray,
-  iconOnFilledHeader: baseColors.blue,
+  iconOnFilledHeader: baseColors.primary,
   filledHeaderBackground: baseColors.white,
   boxShadowOnBackground: 'rgba(0, 0, 0, 0.3)',
 };
@@ -43,9 +43,9 @@ const sizeTheme: SizeTheme = {
     small: '.9rem',
   },
   iconSize: {
-    normal: '1rem',
-    small: '.8rem',
-    big: '1.6rem',
+    small: '1rem',
+    normal: '1.6rem',
+    big: '2rem',
   },
 };
 

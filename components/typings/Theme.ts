@@ -5,15 +5,18 @@ import baseStyled, {
 } from 'styled-components';
 
 export type BaseColorList =
+  | 'primary'
+  | 'secondary'
   | 'white'
   | 'black'
   | 'green'
   | 'yellow'
   | 'blue'
   | 'sharpBlue'
+  | 'gray'
+  | 'indigo'
   | 'lightGray';
 export type SpecificColorList =
-  | 'primary'
   | 'listBox'
   | 'textOnListBox'
   | 'background'
