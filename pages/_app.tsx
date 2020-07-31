@@ -9,14 +9,13 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'components/styles/GlobalStyle';
 import { ThemeMode, themeList } from 'components/styles/themes';
 
-export const SetThemeContext = createContext<
-  Dispatch<SetStateAction<ThemeMode>>
->(null);
+type SetStateFunc<T> = Dispatch<SetStateAction<T>>;
 
-export const ThemeKeyContext = createContext<ThemeMode>('light');
+export const SetThemeContext = createContext<SetStateFunc<ThemeMode>>(null);
+export const ThemeKeyContext = createContext<ThemeMode>('dark');
 
 function PostStoreApp({ Component, pageProps }) {
-  const [themeKey, setThemeKey] = useState<ThemeMode>('light');
+  const [themeKey, setThemeKey] = useState<ThemeMode>('dark');
 
   return (
     <>
