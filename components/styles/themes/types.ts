@@ -3,29 +3,10 @@ import baseStyled, {
   ThemedStyledInterface,
   ThemedCssFunction,
 } from 'styled-components';
+import { baseColors, specificColors } from './default';
 
-export type BaseColorList =
-  | 'primary'
-  | 'secondary'
-  | 'white'
-  | 'black'
-  | 'green'
-  | 'yellow'
-  | 'blue'
-  | 'sharpBlue'
-  | 'gray'
-  | 'indigo'
-  | 'lightGray';
-export type SpecificColorList =
-  | 'listBox'
-  | 'textOnListBox'
-  | 'background'
-  | 'iconOnBackground'
-  | 'textOnBackground'
-  | 'iconOnFilledHeader'
-  | 'textOnFilledHeader'
-  | 'filledHeaderBackground'
-  | 'boxShadowOnBackground';
+export type BaseColorList = keyof typeof baseColors;
+export type SpecificColorList = keyof typeof specificColors;
 export type ColorList = BaseColorList | SpecificColorList;
 
 export type SizeList = 'x-small' | 'small' | 'normal' | 'big' | 'x-big';

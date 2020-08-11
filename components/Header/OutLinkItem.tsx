@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import FontAwsome from '../common/FontAwsome';
 import { GetProps } from 'components/typings/GetProps';
-import { styled } from 'components/typings/Theme';
+import { styled } from 'components/styles/themes/types';
 import { FilledContext } from '.';
 
 interface OutLinkItemProps

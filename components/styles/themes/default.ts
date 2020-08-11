@@ -4,29 +4,32 @@ import {
   SpecificColorList,
   ColorTheme,
   SizeTheme,
-} from 'components/typings/Theme';
+} from 'components/styles/themes/types';
 
-const baseColors: ColorTheme<BaseColorList>['colors'] = {
-  primary: '#0984E3',
+export const baseColors = {
+  primary: '#1D54F5',
   white: '#fff',
   black: '#000000b8',
   green: '#27ae60',
-  blue: '#0984E3',
+  blue: '#1D54F5',
   yellow: '#fdcb6e',
   sharpBlue: 'hsl(211 91% 46% / 1)',
+  gray: '#2d3436',
   lightGray: '#7f8c8d',
 };
 
-const specificColors: ColorTheme<SpecificColorList>['colors'] = {
+export const specificColors = {
   listBox: baseColors.white,
   textOnListBox: baseColors.lightGray,
   background: baseColors.white,
-  textOnBackground: baseColors.black,
-  iconOnBackground: baseColors.sharpBlue,
-  textOnFilledHeader: baseColors.lightGray,
+  textOnBackground: baseColors.white,
+  iconOnBackground: baseColors.white,
+  textOnFilledHeader: baseColors.gray,
   iconOnFilledHeader: baseColors.primary,
   filledHeaderBackground: baseColors.white,
   boxShadowOnBackground: 'rgba(0, 0, 0, 0.3)',
+  heroBackground: '#2f5fd2',
+  headerBackground: baseColors.white,
 };
 
 const colorTheme: ColorTheme = {

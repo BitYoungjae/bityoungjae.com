@@ -1,6 +1,6 @@
 import React from 'react';
-import { styled, ColorList } from 'components/typings/Theme';
-import { IconSize } from 'components/typings/Theme';
+import { styled, ColorList } from 'components/styles/themes/types';
+import { IconSize } from 'components/styles/themes/types';
 
 interface FontAwsomeProps {
   iconName: string;

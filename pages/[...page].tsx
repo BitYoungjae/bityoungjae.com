@@ -1,6 +1,18 @@
 import { getPageHandler, ListPageProp } from 'poststore';
+import ListPage from 'layout/ListPage';
 
-const Page: React.FC<ListPageProp> = (props) => <p>1</p>;
+const Page: React.FC<ListPageProp> = ({
+  global,
+  main: { postList, currentPage, totalPage },
+}) => (
+  <ListPage
+    globalProps={global}
+    postList={postList}
+    tagList={global.tagList}
+    currentPage={currentPage}
+    totalPage={totalPage}
+  />
+);
 
 export default Page;
 

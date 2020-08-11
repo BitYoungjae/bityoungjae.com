@@ -1,4 +1,4 @@
-import { styled } from 'components/typings/Theme';
+import { styled } from 'components/styles/themes/types';
 
 export const PlainAnchor = styled.a`
   text-decoration: none;

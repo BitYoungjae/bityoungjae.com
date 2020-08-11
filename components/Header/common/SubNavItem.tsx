@@ -11,8 +11,8 @@ interface SubNavItemProps {
 const SubNavItem: React.FC<SubNavItemProps> = ({ name, content }) => {
   return (
     <ListBox>
-      <TextBox size='small'>{name}</TextBox>
-      <ValueBox size='small'>{content}</ValueBox>
+      <TextBox size='normal'>{name}</TextBox>
+      <ValueBox size='normal'>{content}</ValueBox>
     </ListBox>
   );
 };

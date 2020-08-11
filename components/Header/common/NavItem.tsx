@@ -18,7 +18,11 @@ const NavItem: React.FC<NavItemProps> = ({
   const isFilled = useContext(FilledContext);
 
   return (
-    <NavSection onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <NavSection
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      isFilled={isFilled}
+    >
       {children}
       {hasDropdown && (
         <FontAwsome

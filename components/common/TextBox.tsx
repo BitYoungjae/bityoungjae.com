@@ -1,5 +1,5 @@
-import { styled } from 'components/typings/Theme';
-import { FontSize } from 'components/typings/Theme';
+import { styled } from 'components/styles/themes/types';
+import { FontSize } from 'components/styles/themes/types';
 
 interface TextBoxProps {
   size?: FontSize;

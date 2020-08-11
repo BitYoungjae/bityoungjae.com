@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import defaultTheme from 'components/styles/themes/default';
-import { SiteTheme } from 'components/typings/Theme';
+import { SiteTheme } from 'components/styles/themes/types';
 import { ThemeMode, themeList } from 'components/styles/themes';
 
 interface ThemeContextState {

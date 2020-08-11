@@ -1,5 +1,5 @@
 import TextBox from 'components/common/TextBox';
-import { styled } from 'components/typings/Theme';
+import { styled } from 'components/styles/themes/types';
 
 const ValueBox = styled(TextBox)`
   display: inline-block;

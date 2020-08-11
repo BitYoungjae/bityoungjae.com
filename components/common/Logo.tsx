@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled, ColorList } from 'components/typings/Theme';
+import { styled, ColorList } from 'components/styles/themes/types';
 
 interface LogoProps {
   logoColor?: ColorList;
@@ -10,7 +10,8 @@ const Logo: React.FC<LogoProps> = ({ logoColor }) => {
     <LogoSVG
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 117 27'
-      logoColor={logoColor}>
+      logoColor={logoColor}
+    >
       <defs />
       <path d='M13.5 13.73l1.98 1.22 2.13-.95-.5 7.58-4.12-.28.5-7.57z' />
       <path d='M17.1 21.58L13 21.3l1.94 1.76 2.17-1.48z' />
@@ -28,7 +29,7 @@ interface LogoSVGProps extends Pick<LogoProps, 'logoColor'> {}
 
 const LogoSVG = styled.svg<LogoSVGProps>`
   height: ${({ theme }) => theme.logoSize};
-  fill: ${({ logoColor = 'blue', theme }) => theme.colors[logoColor]};
+  fill: ${({ logoColor = 'primary', theme }) => theme.colors[logoColor]};
 `;
 
 export default Logo;

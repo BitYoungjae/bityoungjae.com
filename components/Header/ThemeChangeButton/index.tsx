@@ -1,14 +1,20 @@
 import React, { useCallback, useContext } from 'react';
-import { styled } from 'components/typings/Theme';
+import { styled, ColorList } from 'components/styles/themes/types';
 import { ThemeMode } from 'components/styles/themes';
 import ThemeIndicator from './ThemeIndicator';
 import { useSelector, useDispatch } from 'react-redux';
 import { getThemeMode } from 'modules/themeContext/selector';
 import { setTheme } from 'modules/themeContext/slice';
+import { FilledContext } from '..';
 
 const ThemeChangeButton: React.FC = () => {
   const dispatch = useDispatch();
   const themeMode = useSelector(getThemeMode);
+  const isFilled = useContext(FilledContext);
+
+  const lightModeColor: ColorList = isFilled
+    ? 'iconOnFilledHeader'
+    : 'iconOnBackground';
 
   const clickHandler = useCallback(() => {
     const newThemeMode: ThemeMode = themeMode === 'light' ? 'dark' : 'light';
@@ -16,7 +22,11 @@ const ThemeChangeButton: React.FC = () => {
   }, [themeMode]);
 
   return (
-    <ThemeButton onClick={clickHandler} themeMode={themeMode}>
+    <ThemeButton
+      onClick={clickHandler}
+      themeMode={themeMode}
+      lightModeColor={lightModeColor}
+    >
       <ThemeIndicator />
     </ThemeButton>
   );
@@ -24,6 +34,7 @@ const ThemeChangeButton: React.FC = () => {
 
 interface ThemeButtonProps {
   themeMode: ThemeMode;
+  lightModeColor?: ColorList;
 }
 
 const ThemeButton = styled.button<ThemeButtonProps>`
@@ -37,8 +48,10 @@ const ThemeButton = styled.button<ThemeButtonProps>`
   border: 0;
   border-radius: 3rem;
 
-  background-color: ${({ themeMode, theme }) =>
-    themeMode === 'light' ? '#0984e3' : theme.colors.lightGray};
+  background-color: ${({ themeMode, theme, lightModeColor }) =>
+    themeMode === 'light'
+      ? theme.colors[lightModeColor]
+      : theme.colors.lightGray};
 
   transition: background-color 0.5s;
 `;

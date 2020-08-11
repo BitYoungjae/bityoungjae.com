@@ -1,32 +1,17 @@
-import { styled, css } from 'components/typings/Theme';
+import { styled } from 'components/styles/themes/types';
 
-interface HeaderContainerProps {
-  isFilled: boolean;
-}
-
-const HeaderContainer = styled.header<HeaderContainerProps>`
+const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  width: 100vw;
+  width: 90%;
+  max-width: 80rem;
   height: 3.7rem;
-  padding: 0 20vw;
-  position: fixed;
 
-  z-index: 9999;
+  margin: 0 auto;
 
-  color: ${({ theme }) => theme.colors.textOnBackground};
-  background-color: transparent;
   transition: background-color 0.3s;
-
-  ${({ isFilled = false }) => isFilled && filledHeader};
-`;
-
-const filledHeader = css`
-  color: ${({ theme }) => theme.colors.textOnFilledHeader};
-  background-color: ${({ theme }) => theme.colors.filledHeaderBackground};
-  box-shadow: 0 0.1rem 1rem ${({ theme }) => theme.colors.boxShadowOnBackground};
 `;
 
 export default HeaderContainer;

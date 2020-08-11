@@ -1,6 +1,10 @@
-import { styled } from 'components/typings/Theme';
+import { styled } from 'components/styles/themes/types';
 
-const NavSection = styled.section`
+interface NavSectionProps {
+  isFilled?: boolean;
+}
+
+const NavSection = styled.section<NavSectionProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,17 +14,16 @@ const NavSection = styled.section`
 
   padding: 1rem 0.5rem;
 
+  color: ${({ theme, isFilled }) =>
+    isFilled ? theme.colors.textOnFilledHeader : theme.colors.textOnBackground};
   font-size: ${({ theme }) => theme.fontSize.normal};
+  font-weight: bold;
   cursor: pointer;
 
   position: relative;
 
   & > i {
     margin-left: 0.3rem;
-  }
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 

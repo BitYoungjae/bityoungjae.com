@@ -1,4 +1,4 @@
-import { styled, css } from 'components/typings/Theme';
+import { styled, css } from 'components/styles/themes/types';
 
 interface SubNavContainer {
   isHide?: boolean;
@@ -12,6 +12,8 @@ const SubNavContainer = styled.nav<SubNavContainer>`
 
   top: 100%;
   left: 0;
+
+  font-weight: normal;
 
   ${({ isHide }) => isHide && hideStyle};
 `;

@@ -1,4 +1,4 @@
-import { styled } from 'components/typings/Theme';
+import { styled } from 'components/styles/themes/types';
 
 const ListBox = styled.li`
   display: flex;

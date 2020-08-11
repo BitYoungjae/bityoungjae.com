@@ -4,7 +4,7 @@ import {
   ColorTheme,
   BaseColorList,
   SpecificColorList,
-} from 'components/typings/Theme';
+} from 'components/styles/themes/types';
 
 const baseColors: ColorTheme<BaseColorList>['colors'] = {
   primary: '#ff7675',
@@ -28,6 +28,7 @@ const specificColors: ColorTheme<SpecificColorList>['colors'] = {
   iconOnFilledHeader: baseColors.primary,
   filledHeaderBackground: 'hsl(0 0% 10% / 1)',
   boxShadowOnBackground: 'rgba(0, 0, 0, 0.3)',
+  heroBackground: 'linear-gradient(180deg, #222423 0%, #2f3133 100%)',
 };
 
 const colorTheme: ColorTheme = {

@@ -2,14 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 
 export const useScrollOverElement = () => {
   const [isOver, setIsOver] = useState(false);
-  const targetElementRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const targetElement = targetElementRef.current;
-    const elementHeight = targetElement.clientHeight;
-
     const scrollHandler = () => {
-      if (window.pageYOffset > elementHeight) {
+      if (window.pageYOffset > 1) {
         setIsOver(true);
         return;
       }
@@ -22,10 +18,9 @@ export const useScrollOverElement = () => {
     return () => {
       window.removeEventListener('scroll', scrollHandler);
     };
-  }, [targetElementRef.current, setIsOver]);
+  }, [setIsOver]);
 
   return {
     isOver,
-    targetElementRef,
   };
 };

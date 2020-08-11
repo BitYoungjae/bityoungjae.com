@@ -2,7 +2,7 @@ import React from 'react';
 import ListBox from '../common/ListBox';
 import TextBox from 'components/common/TextBox';
 import ValueBox from '../common/ValueBox';
-import { styled, css } from 'components/typings/Theme';
+import { styled, css } from 'components/styles/themes/types';
 import { PropInfoNode } from 'poststore';
 import { IOnReconcilList } from 'components/hooks/useMuiltipleList';
 import { useMouseHover } from 'components/hooks/useMouseHover';
@@ -38,10 +38,10 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
         hoverMouseEvent();
       }}
     >
-      <NameBox size='small' isSelected={isSelected}>
+      <NameBox size='normal' isSelected={isSelected}>
         {name}
       </NameBox>
-      <ValueBox size='small'>{postCount}</ValueBox>
+      <ValueBox size='normal'>{postCount}</ValueBox>
     </ListBox>
   );
 };

@@ -1,4 +1,4 @@
-import { styled, css } from 'components/typings/Theme';
+import { styled, css } from 'components/styles/themes/types';
 import { PlainList } from 'components/styles/alias';
 import { UpdateStyledProps } from 'components/typings/SCHelper';
 

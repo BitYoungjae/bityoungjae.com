@@ -2,7 +2,7 @@ import React from 'react';
 import { getGlobalPageHandler, GlobalProp } from 'poststore';
 import Header from '../components/Header';
 
-const About: React.FC<GlobalProp> = ({ ...global }) => <Header {...global} />;
+const About: React.FC<GlobalProp> = (global) => <Header globalProp={global} />;
 
 export default About;
 

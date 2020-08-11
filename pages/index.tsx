@@ -1,13 +1,18 @@
 import React from 'react';
 import { getMainPageHandler, ListPageProp } from 'poststore';
-import Header from '../components/Header';
-import Hero from 'components/Hero';
+import ListPage from 'layout/ListPage';
 
-const Post: React.FC<ListPageProp> = ({ global }) => (
-  <>
-    <Header {...global} />
-    <Hero />
-  </>
+const Post: React.FC<ListPageProp> = ({
+  global,
+  main: { postList, currentPage, totalPage },
+}) => (
+  <ListPage
+    globalProps={global}
+    postList={postList}
+    tagList={global.tagList}
+    currentPage={currentPage}
+    totalPage={totalPage}
+  />
 );
 
 export default Post;

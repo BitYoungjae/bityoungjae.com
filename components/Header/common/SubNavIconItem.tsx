@@ -2,7 +2,7 @@ import React from 'react';
 import ListBox from './ListBox';
 import FontAwsome from 'components/common/FontAwsome';
 import TextBox from 'components/common/TextBox';
-import { styled } from 'components/typings/Theme';
+import { styled } from 'components/styles/themes/types';
 import { GetProps } from 'components/typings/GetProps';
 import ValueBox from './ValueBox';
 
@@ -21,9 +21,9 @@ const SubNavIconItem: React.FC<SubNavIconItemProps> = ({
     <ListBox>
       <span>
         <FontAwsome iconName={iconName} size='small' color={color} />
-        <NameBox size='small'>{name}</NameBox>
+        <NameBox size='normal'>{name}</NameBox>
       </span>
-      <ValueBox size='small'>{content}</ValueBox>
+      <ValueBox size='normal'>{content}</ValueBox>
     </ListBox>
   );
 };
