@@ -1,20 +1,22 @@
 import React, { useCallback, useContext } from 'react';
 import { styled } from 'components/typings/Theme';
 import { ThemeMode } from 'components/styles/themes';
-import { SetThemeContext, ThemeKeyContext } from 'pages/_app';
 import ThemeIndicator from './ThemeIndicator';
+import { useSelector, useDispatch } from 'react-redux';
+import { getThemeMode } from 'modules/themeContext/selector';
+import { setTheme } from 'modules/themeContext/slice';
 
 const ThemeChangeButton: React.FC = () => {
-  const themeKey = useContext(ThemeKeyContext);
-  const setThemeContext = useContext(SetThemeContext);
+  const dispatch = useDispatch();
+  const themeMode = useSelector(getThemeMode);
 
   const clickHandler = useCallback(() => {
-    const newThemeKey = themeKey === 'light' ? 'dark' : 'light';
-    setThemeContext(newThemeKey);
-  }, [themeKey]);
+    const newThemeMode: ThemeMode = themeMode === 'light' ? 'dark' : 'light';
+    dispatch(setTheme({ themeMode: newThemeMode }));
+  }, [themeMode]);
 
   return (
-    <ThemeButton onClick={clickHandler} themeMode={themeKey}>
+    <ThemeButton onClick={clickHandler} themeMode={themeMode}>
       <ThemeIndicator />
     </ThemeButton>
   );

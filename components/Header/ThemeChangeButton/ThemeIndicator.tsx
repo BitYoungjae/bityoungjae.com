@@ -1,15 +1,15 @@
 import ThemeModeIcon from './ThemeModeIcon';
-import { useContext } from 'react';
-import { ThemeKeyContext } from 'pages/_app';
 import styled, { css } from 'styled-components';
+import { useSelector } from 'react-redux';
+import { getThemeMode } from 'modules/themeContext/selector';
 
 const ThemeIndicator: React.FC = () => {
-  const themeKey = useContext(ThemeKeyContext);
-  const indicatorPosition = themeKey === 'light' ? 'right' : 'left';
+  const themeMode = useSelector(getThemeMode);
+  const indicatorPosition = themeMode === 'light' ? 'right' : 'left';
 
   return (
     <Indicator position={indicatorPosition}>
-      <ThemeModeIcon iconType={themeKey} />
+      <ThemeModeIcon iconType={themeMode} />
     </Indicator>
   );
 };
