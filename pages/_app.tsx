@@ -1,22 +1,12 @@
-import React, {
-  createContext,
-  useState,
-  Dispatch,
-  SetStateAction,
-} from 'react';
+import React from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'components/styles/GlobalStyle';
-import { ThemeMode, themeList } from 'components/styles/themes';
-
-type SetStateFunc<T> = Dispatch<SetStateAction<T>>;
-
-export const SetThemeContext = createContext<SetStateFunc<ThemeMode>>(null);
-export const ThemeKeyContext = createContext<ThemeMode>('dark');
+import { Provider, useSelector } from 'react-redux';
+import store from 'modules';
+import { getTheme } from 'modules/themeContext/selector';
 
 function PostStoreApp({ Component, pageProps }) {
-  const [themeKey, setThemeKey] = useState<ThemeMode>('dark');
-
   return (
     <>
       <Head>
@@ -26,15 +16,18 @@ function PostStoreApp({ Component, pageProps }) {
         />
       </Head>
       <GlobalStyle />
-      <SetThemeContext.Provider value={setThemeKey}>
-        <ThemeKeyContext.Provider value={themeKey}>
-          <ThemeProvider theme={themeList[themeKey]}>
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </ThemeKeyContext.Provider>
-      </SetThemeContext.Provider>
+      <Provider store={store}>
+        <ThemeWrapper>
+          <Component {...pageProps} />
+        </ThemeWrapper>
+      </Provider>
     </>
   );
 }
+
+const ThemeWrapper = ({ children }) => {
+  const theme = useSelector(getTheme);
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+};
 
 export default PostStoreApp;
