@@ -5,30 +5,35 @@ import Category from './Category';
 import { useEffect, useRef } from 'react';
 import { GlobalProp, PropInfoNode } from 'poststore';
 import { useMouseHover } from 'components/hooks/useMouseHover';
-import { useMultipleList } from 'components/hooks/useMuiltipleList';
-import { postInfoSort } from '../common/postInfoSort';
+import { useSelector, useDispatch } from 'react-redux';
+import { getVisibleList } from 'modules/categoryNav/selector';
+import { selectCategory, clearCategory } from 'modules/categoryNav/slice';
 
 interface TagNavItemProps {
   rootCategoryNode: GlobalProp['categoryTree'];
 }
 
 const CategoryNavItem: React.FC<TagNavItemProps> = ({ rootCategoryNode }) => {
-  const rootCategoryList = rootCategoryNode.childList ?? [];
   const {
     isHover,
     hoverMouseEvent,
     leaveMouseEvent,
     containerRef,
   } = useMouseHover();
-  const {
-    displayList,
-    selectStatus,
-    onReconcilList,
-    onInitList,
-  } = useMultipleList([rootCategoryList], postInfoSort);
+
+  const dispatch = useDispatch();
+  const visibleList = useSelector(getVisibleList);
 
   useEffect(() => {
-    onInitList();
+    if (isHover) {
+      const rootCategoryList = rootCategoryNode.childList ?? [];
+
+      dispatch(
+        selectCategory({ listIndex: 0, itemIndex: 0, list: rootCategoryList })
+      );
+    } else {
+      dispatch(clearCategory());
+    }
   }, [isHover]);
 
   return (
@@ -36,14 +41,8 @@ const CategoryNavItem: React.FC<TagNavItemProps> = ({ rootCategoryNode }) => {
       카테고리
       <SubNavContainer isHide={!isHover} ref={containerRef}>
         <SubNavList listDirection='row'>
-          {displayList.map((list, index) => (
-            <Category
-              key={index}
-              list={list}
-              selectedIndex={selectStatus[index]}
-              index={index}
-              onReconcilList={onReconcilList}
-            />
+          {visibleList.map((list, index) => (
+            <Category key={index} list={list} listIndex={index} />
           ))}
         </SubNavList>
       </SubNavContainer>

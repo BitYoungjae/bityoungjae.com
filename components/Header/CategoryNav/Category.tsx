@@ -2,34 +2,24 @@ import React from 'react';
 import CategoryList from './CategoryList';
 import CategoryItem from './CategoryItem';
 import { PropInfoNode } from 'poststore';
-import { IOnReconcilList } from 'components/hooks/useMuiltipleList';
 
 interface CategoryListProps {
   list: PropInfoNode[];
-  index: number;
-  selectedIndex: number;
-  onReconcilList: IOnReconcilList<PropInfoNode>;
+  listIndex: number;
 }
 
-const Category: React.FC<CategoryListProps> = ({
-  list,
-  index,
-  selectedIndex,
-  onReconcilList,
-}) => {
+const Category: React.FC<CategoryListProps> = ({ list, listIndex }) => {
   return (
     <CategoryList>
-      {list.map(({ slug, name, childList, postCount }, itemIndex) => (
+      {list.map(({ slug, name, childList, postCount }, index) => (
         <CategoryItem
           key={slug}
-          index={index}
-          isSelected={selectedIndex === itemIndex}
-          itemIndex={itemIndex}
+          listIndex={listIndex}
+          itemIndex={index}
           slug={slug}
           name={name}
           childList={childList}
           postCount={postCount}
-          onReconcilList={onReconcilList}
         />
       ))}
     </CategoryList>

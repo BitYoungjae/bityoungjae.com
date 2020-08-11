@@ -7,32 +7,37 @@ import { PropInfoNode } from 'poststore';
 import { IOnReconcilList } from 'components/hooks/useMuiltipleList';
 import { useMouseHover } from 'components/hooks/useMouseHover';
 import { UpdateStyledProps } from 'components/typings/SCHelper';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCategory } from 'modules/categoryNav/slice';
+import {
+  getSelectedIndexList,
+  getSelectedIndex,
+} from 'modules/categoryNav/selector';
 
 interface CategoryItemProps extends PropInfoNode {
-  index: number;
+  listIndex: number;
   itemIndex: number;
-  isSelected: boolean;
-  onReconcilList: IOnReconcilList<PropInfoNode>;
 }
 
 const CategoryItem: React.FC<CategoryItemProps> = ({
   slug,
-  index,
+  listIndex,
   itemIndex,
-  isSelected,
   name,
   postCount,
   childList,
-  onReconcilList,
 }) => {
+  const dispatch = useDispatch();
+  const isSelected = itemIndex === useSelector(getSelectedIndex(listIndex));
   const { hoverMouseEvent } = useMouseHover();
 
   return (
     <ListBox
       onMouseEnter={() => {
-        onReconcilList(index, itemIndex, childList);
+        dispatch(selectCategory({ listIndex, itemIndex, list: childList }));
         hoverMouseEvent();
-      }}>
+      }}
+    >
       <NameBox size='small' isSelected={isSelected}>
         {name}
       </NameBox>
